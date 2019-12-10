@@ -1,6 +1,6 @@
 package com.eomcs.basic.ex03;
 
-// 문자 리터럴 
+// 문자 리터럴 - 문자코드를 이용하여 문자 출력 
 
 public class Exam42 {
   public static void main(String[] args) {
@@ -19,12 +19,12 @@ public class Exam42 {
     System.out.println((char)0xac00);
     
     for (int i = 0; i < 11172; i++) {
-    if ( i % 80 ==0)
-    System.out.println();
+      if ( i % 80 ==0) {
+        System.out.println();
+      }
       System.out.print((char)(0xac00 +i));
-
-    }
     
+    }
   
   }
 }
