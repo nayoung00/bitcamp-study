@@ -14,10 +14,10 @@ public class App3 {
     
     
     
-    System.out.println("번호: %s\n", no);
-    System.out.println("내용: %s\n", contents);
-    System.out.println("작성일: 2019-01-01");
-    System.out.println("조회수: 0");
+    System.out.printf("번호: %s\n", no);
+    System.out.printf("내용: %s\n", contents);
+    System.out.printf("작성일: 2019-01-01");
+    System.out.printf("조회수: 0");
 
   }
 }
