@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'eclipse'  // gradle 설정하는 스크립트 파일 안에 이클립스 관련 작업을 할 수 있는 플러그인을 장착
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:28.0-jre'
+
+    testImplementation 'junit:junit:4.12'
+}
+
+application {
+    mainClassName = 'com.eomcs.App'
+}
