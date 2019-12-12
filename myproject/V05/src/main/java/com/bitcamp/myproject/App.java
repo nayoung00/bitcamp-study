@@ -1,6 +1,6 @@
 
 package com.bitcamp.myproject;
-import java.sql.Date;
+
 import java.util.Scanner;
 
 public class App {
@@ -11,7 +11,9 @@ public class App {
     Scanner keyboard = new Scanner(System.in);
 
     System.out.print("번호? ");
-    int no = Integer.parseInt(keyboard.nextLine());
+    int no = keyboard.nextInt();
+ 
+    keyboard.nextLine();
     
     System.out.print("요리? ");
     String cook = keyboard.nextLine();
@@ -32,12 +34,12 @@ public class App {
     System.out.println(); 
     
     
-    System.out.printf("번호: %s\n", no); 
+    System.out.printf("번호: %d\n", no); 
     System.out.printf("요리: %s\n", cook);
     System.out.printf("재료: %s\n", material);
     System.out.printf("방법: %s\n", method);
-    System.out.printf("비용: %s 원 \n", expense);
-    System.out.printf("시간: %s 분 \n ", time);
+    System.out.printf("비용: %d 원 \n", expense);
+    System.out.printf("시간: %d 분 \n ", time);
 
     keyboard.close();
   }

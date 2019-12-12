@@ -1,7 +1,6 @@
 package com.eomcs.lms;
 
 import java.util.Scanner;
-import java.sql.Date;
 
 public class App3 {
   public static void main(String[] args) {
@@ -24,7 +23,6 @@ public class App3 {
     // => 넘겨 받은 밀리초를 가지고 년,월.일,시,분,초를 계산한다.
     
     Date today = new Date(System.currentTimeMillis()); 
-    
     int count = 0;
 
     keyboard.close();
@@ -32,8 +30,8 @@ public class App3 {
     
     System.out.printf("번호: %d\n", no);
     System.out.printf("내용: %s\n", title);
-    System.out.printf("작성일:%s\n",today);
-    System.out.printf("조회수: %d\n",count);
+    System.out.printf("작성일: today");
+    System.out.printf("조회수: count");
 
   }
 }

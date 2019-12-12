@@ -1,7 +1,9 @@
 package com.bitcamp.myproject;
 
 import java.sql.Date;
+
 import java.util.Scanner;
+
 
 public class App3 {
 
@@ -10,8 +12,10 @@ public class App3 {
     Scanner keyboard = new Scanner(System.in);
 
     System.out.print("번호? ");
-    int no = Integer.parseInt(keyboard.nextLine());
+    int no = keyboard.nextInt();
     
+    keyboard.nextLine();
+     
     System.out.print("이름? ");
     String name = keyboard.nextLine();
     
@@ -27,7 +31,7 @@ public class App3 {
     System.out.print("전화? ");
     String tel = keyboard.nextLine();
 
-    Date registeredDate = new Date(System.currentTimeMillis()); 
+    Date registeredDate = new Date(System.currentTimeMillis());
     
     keyboard.close();
     

@@ -15,11 +15,14 @@ public class Exam16 {
     boolean bool; // jvm에서 int로 취급
     char c; // 2
 
+
+
     // => reference : 다른 메모리의 주소를 저장하는 변수
     String str;
     Thread t; 
     java.sql.Date date;
     java.net.Socket socket; 
+    int[] arr; //배열 래퍼런스
 
   
   }
