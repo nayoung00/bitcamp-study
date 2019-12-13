@@ -11,43 +11,35 @@ import java.util.Scanner;
 
 public class Test01 {
   public static void main(String[] args) {
-    char[] operationCode = {'+', '-', '*', '/', '(', ')'}; //연산 부호
 
     Scanner keyboard = new Scanner(System.in);
 
-    System.out.print("값1? ");
-    Int input1 = keyboard.nextint();
+    System.out.printf("값1? ");
+    int num1 = keyboard.nextInt();
 
-    System.out.print("연산자(+,-,*,/)? ");
-    String input2 = keyboard.nextLine();
-
-    System.out.print("값2? ");
-    Int input3 = keyboard.nextInt();
-
-    int num1 = Integer.parseInt(input1);
-    int num2 = Integer.parseInt(input2);
+    keyboard.nextLine();
     
-    if ( input2.equals("+")) {
-      int result= num1 + num2;
-       System.out.println(result);
-      }
+    System.out.printf("연산자(+,-,*,/)? ");
+    String operationCode = keyboard.nextLine();
 
-      elseif ( input2.equals("-")) {
-       int result1 = num1 - num2;
-        System.out.println(result);
-       }
+    System.out.printf("값2? ");
+    int num2 = keyboard.nextInt();
 
-      elseif ( input2.equals("*")) {
-        int result2 = num1 * num2;
-         System.out.println(result);
-        }
-
-      elseif ( input2.equals("/")) {
-        int result3 = num1 / num2;
-         System.out.println(result);
-        }
-
-
+    if (operationCode.equals("+")) {
+      System.out.printf(" %d + %d = %d", num1, num2, num1+num2 );
+    }
+      else if (operationCode.equals("-")) {
+      System.out.printf(" %d - %d = %d", num1, num2, num1-num2 );
+     }
+      else if (operationCode.equals("*")) {
+      System.out.printf(" %d * %d = %d", num1, num2, num1*num2 );
+     }
+      else if(operationCode.equals("/")) {
+       System.out.printf(" %d / %d = %d", num1, num2, num1/num2 );
+    } else {
+      System.out.println("사용할 수 없는 연산자입니다.");
+      return;
+    }
 
   }
 }

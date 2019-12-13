@@ -1,10 +1,12 @@
-package com.eomcs.lms;
+package com.bitcamp.myproject;
 
-import java.sql.Date;
+
 import java.util.Scanner;
 
+import java.sql.Date;
+
 // 입력을 카운트하기
-public class App33 {
+public class App2 {
   public static void main(String[] args) {
     Scanner keyboard = new Scanner(System.in);
 
