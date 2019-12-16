@@ -16,26 +16,25 @@ import java.util.Scanner;
 
 public class Test2 {
   public static void main(String[] args) {
-  // 사용자로부터 입력 받기 
-  Scanner keyScan = new Scanner(System.in);  
-  
-  System.out.println("가위,바위,보?");
-  String response = keyScan.nextLine();
-  System.out.printf("사용자: %s\n", response);
-  
-  int random = ((int)(Math.random()*3));
-  String computer;
-  if(random == 0)
-    computer = "가위";
-  else if (random == 1)
-    computer = "바위";
-  else 
-    computer = "보";
-  
-  System.out.printf("컴퓨터:%s\n", computer);
-  
+    // 사용자로부터 입력 받기 
+    Scanner keyScan = new Scanner(System.in);  
+
+    System.out.println("가위,바위,보?");
+    String response = keyScan.nextLine();
+    System.out.printf("사용자: %s\n", response);
+
+    int random = ((int)(Math.random()*3));
+    String computer;
+    if(random == 0)
+      computer = "가위";
+    else if (random == 1)
+      computer = "바위";
+    else 
+      computer = "보";
+
+    System.out.printf("컴퓨터:%s\n", computer);
   }
-   
-      }
-    
+
+}
+
 

@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.Scanner;
 
 // 입력을 카운트하기
-public class App33 {
+public class App3 {
   public static void main(String[] args) {
     Scanner keyboard = new Scanner(System.in);
 
