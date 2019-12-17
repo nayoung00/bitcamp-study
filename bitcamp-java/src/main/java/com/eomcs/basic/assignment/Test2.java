@@ -10,7 +10,7 @@
 // => 이겼습니다.
 //
 
-package com.eomcs.basic.ex04.assignment;
+package com.eomcs.basic.assignment;
 
 import java.util.Scanner;
 

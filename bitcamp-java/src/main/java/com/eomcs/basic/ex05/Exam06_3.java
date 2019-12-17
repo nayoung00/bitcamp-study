@@ -5,6 +5,14 @@ public class Exam06_3 {
     public static void main(String[] args) {
         int i = 7;
         i = i++;
+        
+        i = i++;
+        // 위 문장은 다음과 같이 실행된다.
+        // int temp = i;
+        // i = i+1;
+        // i = temp;
+        
+        
         // 1) i 값을 그자리에 놓는다.
         //    => i = 7;    
         //    => 7 값을 i에 저장할 수 없다. 

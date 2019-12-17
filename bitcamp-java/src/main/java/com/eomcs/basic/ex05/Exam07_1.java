@@ -1,4 +1,5 @@
-// 할당 연산자  : +=  -=  *=  /=  %=  &=  |=  ^=  <<=  >>=  >>>=
+//# 할당 연산자  : +=  -=  *=  /=  %=  &=  |=  ^=  <<=  >>=  >>>=
+//
 package com.eomcs.basic.ex05;
 
 public class Exam07_1 {
@@ -12,5 +13,6 @@ public class Exam07_1 {
         i = 2;
         i *= 5;
         System.out.println(i);
+        
     }
 }
