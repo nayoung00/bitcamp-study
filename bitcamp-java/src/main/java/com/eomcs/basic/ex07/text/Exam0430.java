@@ -5,15 +5,16 @@ package com.eomcs.basic.ex07.text;
 
 public class Exam0430 {
 
+  
   static MyObject getMyObject() {
     // Exam03_3.java 에 정의된 MyObject 클래스 사용
     MyObject ref = new MyObject();
     ref.a = 100;
-    ref.b = 200;
-    
+    ref.b = 200;    
     return ref;
   }
-
+  
+  
   public static void main(String[] args) {
     MyObject ref;
     ref = getMyObject();
