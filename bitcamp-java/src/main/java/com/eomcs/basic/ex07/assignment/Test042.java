@@ -1,0 +1,33 @@
+package com.eomcs.basic.ex07.assignment;
+
+import java.util.Scanner;
+
+// 과제: 재귀호출을 이용하여 n! 을 계산하라.
+// 실행)
+// 입력? 5
+// 5! = 1 * 2 * 3 * 4 * 5 = 120
+//
+public class Test042 {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.println("입력? ");
+    int n = sc.nextInt();
+    sc.close();
+    int result = factorial(n);
+    System.out.printf("%d! =", n);
+    for (int i = 1; i < n; i++) {
+        System.out.printf("%d * ", i);
+    }  
+    System.out.printf("%d =", n);
+    System.out.println(result); 
+  }
+
+  static int factorial(int n) {   
+    // 식 : f(n) = n * f(n-1)
+    // 
+    if (n == 1)
+      return 1; 
+
+    return n*factorial(n-1);
+  }
+}
