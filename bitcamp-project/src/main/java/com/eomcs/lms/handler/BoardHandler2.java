@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.Scanner;
 import com.eomcs.lms.domain.Board;
 
-public class BoardHandler {
+public class BoardHandler2 {
 
   static final int BOARD_SIZE = 100;
   static Board[] boards = new Board[BOARD_SIZE];
@@ -33,11 +33,9 @@ public class BoardHandler {
       Board b = boards[i];
       System.out.printf("%d, %s, %s, %d\n", 
           b.no, b.title, b.date, b.viewCount);
-
-    }   
+    }
   }
-  
-   public static void detailBoard() {
+  public static void detailBoard() {
     System.out.println("게시물 번호? ");
     int no = keyboard.nextInt();
     keyboard.nextLine(); // 숫자 뒤의 남은 공백 제거 
@@ -49,8 +47,7 @@ public class BoardHandler {
         board = boards[i];
         break;       
       }
-    }
-    
+    }   
     if (board == null) {
       System.out.println("게시물 번호가 유효하지 않습니다. ");
       return;
@@ -59,6 +56,5 @@ public class BoardHandler {
     System.out.printf("제목: %s\n", board.title);
     System.out.printf("등록일: %s\n", board.date);
     System.out.printf("조회수: %d\n", board.viewCount);    
-    
   }
 }

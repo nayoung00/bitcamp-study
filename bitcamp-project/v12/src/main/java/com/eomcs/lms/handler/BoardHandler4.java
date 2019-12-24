@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.Scanner;
 import com.eomcs.lms.domain.Board;
 
-public class BoardHandler {
+public class BoardHandler4 {
 
   static final int BOARD_SIZE = 100;
   static Board[] boards = new Board[BOARD_SIZE];
@@ -34,10 +34,9 @@ public class BoardHandler {
       System.out.printf("%d, %s, %s, %d\n", 
           b.no, b.title, b.date, b.viewCount);
 
-    }   
+    }
   }
-  
-   public static void detailBoard() {
+  public static void detailBoard() {
     System.out.println("게시물 번호? ");
     int no = keyboard.nextInt();
     keyboard.nextLine(); // 숫자 뒤의 남은 공백 제거 
