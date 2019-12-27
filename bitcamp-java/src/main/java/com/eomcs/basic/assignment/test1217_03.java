@@ -9,7 +9,7 @@
 밑변 길이? 5
  *
  ***
-*****
+ *****
 ``` 
  */
 
@@ -20,13 +20,22 @@ import java.util.Scanner;
 public class test1217_03 {
   public static void main(String[]args) {
     Scanner sc = new Scanner(System.in);
-   
+
     System.out.print("밑변 길이? ");
     int len = sc.nextInt();
 
-    int a = 1;
-    while ("")
-    System.out.println("*");
-    
+    int a = 1;  
+
+    while (a <= len ) {
+      int b = 1;
+      while ( b <= a) {
+        System.out.print("*");
+        b++;
+      }
+      System.out.println("");
+      a++;
+    }
+
   }
+
 }

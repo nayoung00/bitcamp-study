@@ -19,8 +19,7 @@ public class Exam0120 {
       int math;
       int sum;
       float aver;
-    }
-    
+    }    
     // 개발자가 새롭게 정의한 메모리 설계도에 따라 메모리를 준비한다.
     //
     Score s; //???

@@ -26,8 +26,7 @@ public class Test01 {
       s.math = keyScan.nextInt();
       
       arr[i] = s;
-    }
-    
+    }   
     keyScan.close();
     
     System.out.println("-------------------------------");
