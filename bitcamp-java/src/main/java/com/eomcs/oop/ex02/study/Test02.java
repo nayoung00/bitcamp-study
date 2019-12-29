@@ -9,9 +9,8 @@ public class Test02 {
     Calculator c1 =new Calculator();
     Calculator c2 =new Calculator();
 
-    // 메서드를 호출할 때 어떤 result 변수에 그 계산 결괄르 저장할 것인지,
+    // 메서드를 호출할 때 어떤 result 변수에 그 계산 결과를 저장할 것인지,
     // 파라미터로 인스턴스 주소를 넘겨야 한다.
-
 
     // Calculator의 result 변수는 static 이라서 
     // 클래스에 한 개만 존재한다.

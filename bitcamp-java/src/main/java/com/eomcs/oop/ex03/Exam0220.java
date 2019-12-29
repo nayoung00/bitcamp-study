@@ -37,12 +37,3 @@ public class Exam0220 {
     System.out.printf("절대값=%d\n", result);
   }
 }
-
-
-
-
-
-
-
-
-

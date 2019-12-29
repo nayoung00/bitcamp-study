@@ -15,7 +15,5 @@ public class Test01 {
     
     System.out.println(s.sum);
     System.out.println(s.aver);
-    
-    
   }
 }
