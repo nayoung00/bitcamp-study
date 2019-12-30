@@ -25,10 +25,3 @@ public class Exam01 {
     }
 
 }
-
-
-
-
-
-
-

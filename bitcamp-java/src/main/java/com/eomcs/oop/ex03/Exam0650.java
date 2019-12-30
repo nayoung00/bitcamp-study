@@ -19,8 +19,3 @@ public class Exam0650 {
     System.out.println(A.area(25));
   }
 }
-
-
-
-
-
