@@ -63,12 +63,6 @@ public class Exam0210 {
         System.out.println(s6);
         System.out.println(s7);
         System.out.println(s8);
-        
-        
+                
     }
 }
-
-
-
-
-

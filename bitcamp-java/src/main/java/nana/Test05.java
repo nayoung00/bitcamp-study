@@ -46,14 +46,17 @@ class Bank {
     return res;
   }
 }
+
 class Client {
   private int money;
   public Client(int money) {
     this.money = money;
   }
+  
   public void borrowMoney(Bank bank, int wantMoney) {
     this.money += bank.loan(wantMoney);
   }
+  
   public String toString() {
     String res = "";
     res += String.format("보유 돈 : %d\n", this.money);

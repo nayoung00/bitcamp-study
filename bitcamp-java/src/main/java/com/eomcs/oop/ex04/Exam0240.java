@@ -32,11 +32,5 @@ public class Exam0240 {
         
         // 스태틱 메서드 활용
         java.sql.Date d = java.sql.Date.valueOf("2018-03-21");
-        
     }
 }
-
-
-
-
-

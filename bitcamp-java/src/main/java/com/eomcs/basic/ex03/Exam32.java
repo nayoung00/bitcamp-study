@@ -15,6 +15,5 @@ public class Exam32 {
     System.out.println(3.141592653589793f);
     System.out.println(3.141592653589793F);
 
-
   }
 }

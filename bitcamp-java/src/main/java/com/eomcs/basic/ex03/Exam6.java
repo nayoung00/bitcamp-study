@@ -9,7 +9,6 @@ public class Exam6 {
     System.out.println("홍길동");
     System.out.println("가"); // 문자가 아니라 문자열이다!
     
-    
     // + 연산자(operator; 특정 기능을 수행하년 명령어)를 이용하여
     // 여러개의 문자열을 하나로 합쳐 새 문자열을 만들 수 있다. 
     System.out.println("홍길동" + " 입니다.");
@@ -21,14 +20,10 @@ public class Exam6 {
     System.out.println("홍길동은 " + 20 + "살입니다.");
     System.out.println("취업여부: " + false);
     System.out.println("키: " + 180.7f);
-
-
   }
 }
-
 // 문자열의 저장?
 // - 자바는 char(2byte) 배열(여러 개의 메모리)에 
 // 문자열의 유니코드(UNICODE; ucs-2)를 저장한다.
 // - 예) "AB가각"
 //     [0041][0042][ac00][ac01] <== 2바이트 메모리 4개에 저장됨.
-
