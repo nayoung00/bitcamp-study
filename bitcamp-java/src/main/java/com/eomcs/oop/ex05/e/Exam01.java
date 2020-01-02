@@ -11,6 +11,14 @@ public class Exam01 {
         obj.v1 = 100;
         System.out.printf("v2=%d, v1=%d\n", obj.v2, obj.v1);
         
+        B obj2 = new B();
+        obj2.v2 = 2000;
+        obj2.v1 = 1000;
+        
+        //클래스는 오직 한번만 로딩된다.
+        // => 그래서 static 블록도 위에서 한 번 실행되면 다시 실행하지 않는다.
+        System.out.printf("v2=%d, v1=%d\n", obj2.v2, obj2.v1);
+        
         // 인스턴스 생성 절차
         // 1) B 클래스가 사용한다고 선언한 클래스를 먼저 메모리에 로딩한다.
         //    즉 A 클래스를 메모리에 로딩한다.
@@ -21,7 +29,6 @@ public class Exam01 {
         // 그래서 인스턴스를 생성할 때는 항상 상속 받아야 하는 클래스 파일이 모두 있어야 한다.
         // 테스트 하는 방법?
         // => A.class 파일을 제거하고 Exam01을 실행해 보라! 
-        
     }
 }
 
@@ -35,13 +42,3 @@ public class Exam01 {
 // 
 // 서브클래스(sub class) = 자식클래스(child class)
 // => B 클래스처럼 다른 클래스를 상속 받는 클래스를 말한다.
-
-
-
-
-
-
-
-
-
-
