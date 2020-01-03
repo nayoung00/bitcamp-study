@@ -21,7 +21,7 @@ public class A {
     static public void m(int a, String b) {
         System.out.println("m(int,String)");
     }
-    
+   
     // 주의!
     // => 변수의 이름만 다른 메서드를 중복해서 만들 수 없다.
     // => 이유?
@@ -43,10 +43,4 @@ public class A {
     }
     */
 }
-
-
-
-
-
-
 

@@ -49,6 +49,7 @@ public class MemberList {
     } 
     this.list[this.size++] = member;  
   }
+  
   public Member get(int no) {
     for (int i = 0; i < this.size; i++) {
       if (this.list[i].getNo() == no) {

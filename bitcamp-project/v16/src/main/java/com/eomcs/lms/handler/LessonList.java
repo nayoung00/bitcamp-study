@@ -20,7 +20,7 @@ public class LessonList {
     else
       this.list = new Lesson[capacity];
   }
-
+  
   public Lesson[] toArray() {
     /*
     Lesson[] arr = new Lesson[this.size];

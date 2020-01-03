@@ -1,7 +1,7 @@
 // 다형성 - 다형적 변수와 형변환 II
 package com.eomcs.oop.ex06.a;
 
-public class Exam03 {
+public class Exam0310 {
 
     public static void main(String[] args) {
         Vehicle v1 = new Vehicle();
@@ -19,16 +19,10 @@ public class Exam03 {
         s.valve = 16;
         s.sunroof = true;
         s.auto = true;
+        
         System.out.printf("%s, %d, %d, %d, %b, %b\n", 
                 s.model, s.capacity,
                 s.cc, s.valve,
                 s.sunroof, s.auto);
-        
-        
     }
-
 }
-
-
-
-

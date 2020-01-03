@@ -17,13 +17,11 @@ public class LessonHandler {
   // 클래스필드  = 스태틱 필드 
   // => 공유할 변수
   static final int LESSON_SIZE = 100;
-
   
   public LessonHandler(Scanner input){
     this.input = input;
     this.lessons = new Lesson[LESSON_SIZE];
   }
-
   
   public void addLesson() {
     Lesson lesson = new Lesson();
