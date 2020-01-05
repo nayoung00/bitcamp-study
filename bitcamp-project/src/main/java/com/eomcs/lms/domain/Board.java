@@ -39,7 +39,4 @@ public class Board {
   public void setWriter(String writer) {
     this.writer = writer;
   }
-  
-  
 }
-
