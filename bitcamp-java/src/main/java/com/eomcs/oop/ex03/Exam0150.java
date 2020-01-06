@@ -44,6 +44,3 @@ public class Exam0150 {
         System.out.println(s3.count);
     }
 }
-
-
-

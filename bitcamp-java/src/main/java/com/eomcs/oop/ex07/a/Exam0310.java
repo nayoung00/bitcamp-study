@@ -43,6 +43,7 @@ class Score3{
     this.math = math;
     this.compute();
   }
+  
   public int getMath() {
     return this.math;
   }
@@ -67,6 +68,7 @@ class Score3{
 public class Exam0310 {
   public static void main(String[] args) {
     Score3 s1 = new Score3();
+    
     s1.name = "홍길동";
     s1.setKor(100);
     s1.setEng(90);
@@ -86,6 +88,9 @@ public class Exam0310 {
     // 값을 조회하려면 게터를 사용해야 한다.
     // 
     System.out.printf("%s, %d, %d, %d, %d, %.1f\n",
-        s1.name, s1.getKor(), s1.getEng(), s1.getMath(), s1.getSum(), s1.getAver());
+        s1.name, s1.getKor(), s1.getEng(), s1.getMath(), 
+        s1.getSum(), s1.getAver());
   }
 }
+
+// 메서드를 통해서 값을 넣고 꺼내도록 한다. 캡슐화 . 필드나 메서드 잘못된 사용 방지하는 문법.

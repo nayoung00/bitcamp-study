@@ -12,8 +12,6 @@ public class Exam0320 {
       int sum;
       float aver;
     }
-    
-
     // Score 레퍼런스 선언 + 인스턴스 생성(사용할 메모리 확보) 
     Score s1 = new Score();
 

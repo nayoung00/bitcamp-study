@@ -22,10 +22,3 @@ public class Exam0130 {
                 c1.getName(), c1.getAge(), c1.getWeight(), c1.getHeight());
     }
 }
-
-
-
-
-
-
-

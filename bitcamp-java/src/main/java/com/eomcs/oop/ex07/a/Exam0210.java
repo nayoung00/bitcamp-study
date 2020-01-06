@@ -7,7 +7,7 @@ class Score2{
   int eng;
   int math;
   
-  // sum 이나 aver 필드는 kor, eng, math 값ㅇ르 연산한 결과를 보관하기 때문에
+  // sum 이나 aver 필드는 kor, eng, math 값을 연산한 결과를 보관하기 때문에
   // 직접 접근하여 값을 변경하는 것을 허용해서는 안된다.
   // 허용하는 순간 개발자의 잘못도니 명령으로 
   // 국, 영, 수 점수와 합계, 평균이 서로 맞지 않는 문제가 발생할 수 있다.
@@ -28,6 +28,7 @@ class Score2{
   public int getSum() {
     return this.sum;
   }
+  
   public float getAver() {
     return this.aver;
   }
@@ -40,7 +41,9 @@ class Score2{
 
 public class Exam0210 {
   public static void main(String[] args) {
+    
     Score2 s1 = new Score2();
+    
     s1.name = "홍길동";
     s1.kor = 100;
     s1.eng = 90;
@@ -52,8 +55,8 @@ public class Exam0210 {
     // => 즉 클래스의 멤버만 접근할 수 있고 클래스 외부에서는 접근할 수 없다.
     // => 그래서 다음과 같이 임의로 접근하여 값을 변경할 수 없다.
     //
-    // s1.sum = 300; // 컴파일 오류!
-    // s1.aver = 100f; // 컴파일 오류!
+    //s1.sum = 300; // 컴파일 오류!
+    //s1.aver = 100f; // 컴파일 오류!
     
     
     System.out.printf("%s, %d, %d, %d, %d, %.1f\n",

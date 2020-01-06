@@ -31,11 +31,3 @@ public class Exam0140 {
                 A.v1, p.v2, p2.v2);
     }
 }
-
-
-
-
-
-
-
-

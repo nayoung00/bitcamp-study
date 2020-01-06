@@ -61,11 +61,3 @@ public class Exam0160 {
     m6.type = Member.MEMBER;
   }
 }
-
-
-
-
-
-
-
-

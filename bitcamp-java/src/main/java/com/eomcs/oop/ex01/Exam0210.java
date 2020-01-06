@@ -6,7 +6,6 @@ public class Exam0210 {
   public static void main(String[] args) {
     // 여러 개의 인스턴스 주소 저장하기
     
-
     class Score {
       String name;
       int kor;

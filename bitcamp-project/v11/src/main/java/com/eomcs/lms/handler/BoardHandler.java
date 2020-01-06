@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class BoardHandler {
 
-
   static class Board {
     int no;
     String title;
