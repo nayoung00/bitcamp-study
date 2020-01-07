@@ -58,7 +58,3 @@ public class Exam0510 {
     // System.out.println(date);// 컴파일 오류!
   } 
 }
-
-
-
-

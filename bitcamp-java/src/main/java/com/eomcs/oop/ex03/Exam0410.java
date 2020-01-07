@@ -29,7 +29,7 @@ public class Exam0410 {
       System.out.println("Score()");
     }
 
-
+    
     public void compute() {
       this.sum = this.kor + this.eng + this.math;
       this.average = this.sum / 3f;
@@ -49,11 +49,3 @@ public class Exam0410 {
     Score s3 = new Score();
   }
 }
-
-
-
-
-
-
-
-
