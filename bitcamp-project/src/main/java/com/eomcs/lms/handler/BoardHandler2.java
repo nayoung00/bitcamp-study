@@ -1,6 +1,4 @@
-// 게시글 번호로 객체를 찾는 코드를 관리하기 쉽게 별도의 메서드로 분리한다.
-// => indexOfBoard(int) 메서드 추가
-//
+// 게시글 인덱스로 객체를 찾는 대신에 게시글을 입력할 때 등록한 번호로 객체를 찾도록 변경한다.
 
 package com.eomcs.lms.handler;
 
@@ -9,17 +7,17 @@ import java.util.Scanner;
 import com.eomcs.lms.domain.Board;
 import com.eomcs.util.ArrayList;
 
-public class BoardHandler {
+public class BoardHandler2 {
 
   ArrayList<Board> boardList;
   Scanner input;
 
-  public BoardHandler(Scanner input) {
+  public BoardHandler2(Scanner input) {
     this. input = input;
     this.boardList = new ArrayList<>();
   }
 
-  public BoardHandler(Scanner input, int capacity) {
+  public BoardHandler2(Scanner input, int capacity) {
     this.input = input;
     boardList = new ArrayList<>(capacity);
   }
@@ -61,14 +59,20 @@ public class BoardHandler {
     input.nextLine(); // 숫자 뒤의 남은 공백 제거
     
     // 게시글 번호로 객체를 찾는다.
-    int index = indexOfBoard(no);
-    
-    if (index == -1) {
+    Board board = null;
+    for (int i = 0; i < this.boardList.size(); i++) {
+      Board temp = this.boardList.get(i);
+      if(temp.getNo() == no) {
+        board = temp;
+        break;
+      }
+    }
+
+    if (board == null) {
       System.out.println("해당 번호의 게시글이 없습니다. ");
       return;
     }
-    
-    Board board = this.boardList.get(index);
+
     System.out.printf("번호: %d\n", board.getNo());
     System.out.printf("제목: %s\n", board.getTitle());
     System.out.printf("등록일: %s\n", board.getDate());
@@ -80,14 +84,21 @@ public class BoardHandler {
     int no = input.nextInt();
     input.nextLine(); 
 
-    int index = indexOfBoard(no);
- 
-      if(index == -1) {
+    Board oldBoard = null;
+    int index = -1;
+    for (int i = 0; i < this.boardList.size(); i++) {
+      Board temp = this.boardList.get(i);
+      if(temp.getNo() == no) {
+        oldBoard = temp;
+        index = i; 
+        break;
+      }
+    }
+
+    if (oldBoard == null) {
       System.out.println("해당 번호의 게시글이 없습니다. ");
       return;
     }
-      
-    Board oldBoard = this.boardList.get(index);
     System.out.printf("내용 (%s)?",oldBoard.getTitle());
     String title = (input.nextLine());
 
@@ -110,23 +121,24 @@ public class BoardHandler {
     int no = input.nextInt();
     input.nextLine(); // 숫자 뒤의 남은 공백 제거
 
-    int index = indexOfBoard(no);
-   
-    if (index == -1) {
+    Board board = null;
+    int index = -1;
+    for (int i = 0; i < this.boardList.size(); i++) {
+      Board temp = this.boardList.get(i);
+      if(temp.getNo() == no) {
+        board = temp;
+        index = i; 
+        break;
+      }
+    }
+
+    if (board == null) {
       System.out.println("해당 번호의 게시글이 없습니다. ");
       return;
     }
-    
     this.boardList.remove(index);
     System.out.println("게시글을 삭제했습니다.");
   }
 
-  private int indexOfBoard(int no) {
-    for (int i = 0; i < this.boardList.size(); i++) {
-      if(this.boardList.get(i).getNo() == no) {
-       return i; 
-      }
-    }
-    return -1;
-  }
+  
 }

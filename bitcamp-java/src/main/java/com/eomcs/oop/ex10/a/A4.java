@@ -25,12 +25,3 @@ public abstract class A4 {
     //  메서드가 이 메서드를 사용하기 때문이야!"
     public abstract void m3();
 }
-
-
-
-
-
-
-
-
-

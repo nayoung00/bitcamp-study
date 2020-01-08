@@ -112,14 +112,12 @@ public class ArrayList<E> {
     this.elementData[index] = value;
     this.size++;
   }
-  @SuppressWarnings("unused")
   private Object grow() {
     int oldSize = this.elementData.length;
     int newSize = oldSize + (oldSize >> 1);
 
     return this.elementData = Arrays.copyOf(this.elementData, newSize);
   }
-  @SuppressWarnings("unused")
   private int newCapacity() {
     int oldSize = this.elementData.length;
     return oldSize + (oldSize >> 1);

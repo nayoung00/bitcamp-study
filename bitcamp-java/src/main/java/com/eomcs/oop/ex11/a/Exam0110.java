@@ -17,14 +17,5 @@ public class Exam0110 {
         for (String name : names) {
             System.out.println(name);
         }
-
     }
-
 }
-
-
-
-
-
-
-

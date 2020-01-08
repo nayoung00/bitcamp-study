@@ -28,12 +28,5 @@ public class Exam0140 {
     if (x1 == x2) {
       System.out.println("x1 == x2");
     }
-
-
   }
 }
-
-
-
-
-

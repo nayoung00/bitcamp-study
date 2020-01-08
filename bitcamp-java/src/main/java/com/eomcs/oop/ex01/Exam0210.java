@@ -5,7 +5,6 @@ package com.eomcs.oop.ex01;
 public class Exam0210 {
   public static void main(String[] args) {
     // 여러 개의 인스턴스 주소 저장하기
-    
     class Score {
       String name;
       int kor;
@@ -14,7 +13,6 @@ public class Exam0210 {
       int sum;
       float aver;
     }
-
     // Score 레퍼런스를 여러 개 준비한다. 
     Score s1, s2, s3;
 
