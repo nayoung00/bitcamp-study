@@ -7,18 +7,23 @@ package com.eomcs.lms.handler;
 import java.sql.Date;
 import java.util.Scanner;
 import com.eomcs.lms.domain.Board;
-import com.eomcs.util.LinkedList;
+import com.eomcs.util.ArrayList;
 import com.eomcs.util.Prompt;
 
 public class BoardHandler {
   
-  LinkedList<Board> boardList;
+  ArrayList<Board> boardList;
   
   Prompt prompt;
   
   public BoardHandler(Prompt prompt) {
     this.prompt = prompt;
-    this.boardList = new LinkedList<>();
+    this.boardList = new ArrayList<>();
+  }
+  
+  public BoardHandler(Prompt prompt, int capacity) {
+    this.prompt = prompt;
+    this.boardList = new ArrayList<>(capacity);
   }
   
   public void listBoard() {
@@ -79,7 +84,7 @@ public class BoardHandler {
     newBoard.setTitle(prompt.inputString(
         String.format("내용(%s)? ", oldBoard.getTitle()), 
         oldBoard.getTitle()));
-   
+    
     
     if (newBoard.equals(oldBoard)) {
       System.out.println("게시글 변경을 취소했습니다.");

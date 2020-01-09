@@ -25,6 +25,14 @@ public class ArrayList<E> {
       int newSize = oldSize + (oldSize >> 1);
 
       this.elementData = Arrays.copyOf(this.elementData, newSize); 
+      /*
+      Object[] newArr = new Object[newSize];
+
+      for (int i = 0; i < this.size; i++) {
+        newArr[i] = this.elementData[i];
+      }
+      this.elementData = newArr;
+       */
     }
     this.elementData[this.size++] = e;
   }
