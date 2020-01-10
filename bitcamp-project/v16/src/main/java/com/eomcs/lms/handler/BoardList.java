@@ -46,6 +46,7 @@ public class BoardList {
     }
     this.list[this.size++] = board;
   }
+  
   public Board get(int no) {
     for (int i = 0; i < this.size; i++) {
       if (this.list[i].getNo() == no) {
