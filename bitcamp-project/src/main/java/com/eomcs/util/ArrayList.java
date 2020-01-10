@@ -54,7 +54,7 @@ public class ArrayList<E> {
     }
     E oldValue = (E) this.elementData[index];
     System.arraycopy(this.elementData, index + 1, 
-        this.elementData, index, this.size - (index+1)); // 원래 배열의 3번값ㅇ르 2번으로 원래 배열의 3번부터 끝까지를 원래 배열의 2번부터 집어 넣어라. 
+        this.elementData, index, this.size - (index+1)); 
     /*
     for (int i = index + 1; i < this.size; i++) {  
       this.elementData[i-1] = this.elementData[i];
