@@ -5,7 +5,7 @@ package com.eomcs.oop.ex01;
 public class Exam0120 {
   public static void main(String[] args) {
     // 여러 개의 변수(메모리)를 묶어서 한 사람의 성적 정보를 저장하라!
-    // => 밥, 국, 반찬1, 반찬2, 반찬3 을 쟁반에 담아서 가져오는 상황.
+    // => 밥, 국, 반찬1, 반찬2, 반찬3  쟁반에 담아서 가져오는 상황.
 
     // 다양한 타입의 메모리를 묶어서 
     // Score라는 새로운 형태의 메모리를 만들 수 있는 설계도.
@@ -88,6 +88,3 @@ public class Exam0120 {
 //   레퍼런스명.항목명 = 값;
 //   예) Score s = new Score();
 //       s.name = "홍길동";
-
-
-

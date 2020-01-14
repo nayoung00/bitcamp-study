@@ -15,7 +15,3 @@ public class Exam0530 {
         System.out.println(obj.a);
     } 
 }
-
-
-
-

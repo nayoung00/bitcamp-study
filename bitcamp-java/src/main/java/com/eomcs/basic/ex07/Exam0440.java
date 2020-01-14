@@ -10,6 +10,7 @@ public class Exam0440 {
     return r1 + r2;
   }
 
+ 
   static int m2(int value) {
     return value + 100;
   }
