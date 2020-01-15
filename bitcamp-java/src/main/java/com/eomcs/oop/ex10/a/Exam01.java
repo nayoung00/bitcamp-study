@@ -8,5 +8,4 @@ public class Exam01 {
         A obj = new A(); // 컴파일 오류! 
 
     }
-
 }

@@ -18,6 +18,7 @@ public class ArrayList<E> extends AbstractList<E>{
     }
   }
 
+
   // 추상 메서드를 다음과 같이 @Override 애노테이션을 붙이지 않아도
   // 문법 검사가 이루어지지 않는다.
   // @Override

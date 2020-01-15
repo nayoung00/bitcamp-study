@@ -14,4 +14,3 @@ public abstract class AbstractList<E> implements List<E> {
     return new ListIterator<E>(this);
   }
 }
-

@@ -2,17 +2,17 @@ package com.eomcs.util;
 import java.util.Arrays;
 public class ArrayList<E> extends AbstractList<E>{
 
-  private static final int DEFAULT_CAPACTIY = 2;
+  private static final int DEFAULT_CAPACITY = 2;
 
   Object[] elementData ;
 
   public ArrayList() {
-    this.elementData = new Object[DEFAULT_CAPACTIY];
+    this.elementData = new Object[DEFAULT_CAPACITY];
   }
 
   public ArrayList(int initialCapacity) {
     if (initialCapacity < DEFAULT_CAPACTIY) {
-      this.elementData = new Object[DEFAULT_CAPACTIY];
+      this.elementData = new Object[DEFAULT_CAPACITY];
     } else {
       this.elementData = new Object[initialCapacity];
     }

@@ -10,5 +10,4 @@ public class Farm extends Building {
     public void endEffect() {
         System.out.println("씨앗을 뿌린다...");
     }
-
 }

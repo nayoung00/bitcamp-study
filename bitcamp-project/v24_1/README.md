@@ -71,8 +71,7 @@
 ### 훈련8. Stack과 Queue에서 값을 꺼낼 때 Iterator를 사용하도록 변경하라.
 
 - App.java 변경
-    - `history`, `history2` 명령을 처리할 때 Stack, Queue 객체에서 직접 값을 꺼내지 않고 
-       Iterator 구현체를 통해서 꺼낸다.
+    - `history`, `history2` 명령을 처리할 때 Stack, Queue 객체에서 직접 값을 꺼내지 않고 Iterator 구현체를 통해서 꺼낸다.
     - printCommandHistory()와 printCommandHistory2()는 코드가 같기 때문에 하나로 합친다.
     
     
