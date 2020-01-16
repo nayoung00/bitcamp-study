@@ -1,5 +1,5 @@
 // Object 클래스 - toString() 메서드에 대하여
-package com.eomcs.corelib.ex01;
+package com.eomcs.algorithm.data_structure.corelib.ex01;
 
 
 

@@ -1,5 +1,5 @@
 // Object 클래스 - 자바 최상위 클래스
-package com.eomcs.corelib.ex01;
+package com.eomcs.algorithm.data_structure.corelib.ex01;
 
 
 

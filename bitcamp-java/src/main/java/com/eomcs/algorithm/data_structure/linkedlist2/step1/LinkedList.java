@@ -19,6 +19,7 @@ public class LinkedList {
     return true;
   }
   
+  
   public Object get(int index) {
     if (index < 0 || index >= size)
       throw new IndexOutOfBoundsException("인덱스가 유효하지 않습니다!");
@@ -110,7 +111,6 @@ public class LinkedList {
       node = node.next;
     }
     */
-    
     // 방법2;
     Node node = head;
     int i = 0;
