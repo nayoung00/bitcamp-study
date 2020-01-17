@@ -55,8 +55,8 @@ public class MemberHandler {
   }
 
   public void listMember() {
-    for (int i = 0; i <this.memberCount; i++) {
-      Member m = this.members[i];
+    Member[] members = this.memberList.toArray();
+    for (Member m : members) {
       System.out.printf("%d, %s, %s, %s, %s\n", 
           m.getNo(), m.getName(), m.getEmail(), m.getTel(), m.getRegisteredDate());
     }

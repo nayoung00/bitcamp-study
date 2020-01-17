@@ -37,10 +37,10 @@ public class BoardHandler {
     // 보통 "dependency"라 줄여서 부른다.
     // 생성자에서 해야할 일은 인스턴스르 생성할 때 
     // 이런 의존 객체를 반드시 초기화시키도록 하는 것이다.
-    this. input = input;
+    this.input = input;
     this.boards = new Board[BOARD_SIZE];
   }
-
+  
   public BoardHandler(Scanner input, int capacity) {
     this.input = input;
     if (capacity < BOARD_SIZE || capacity > 10000)
@@ -49,6 +49,7 @@ public class BoardHandler {
       this.boards = new Board[capacity];
   }
 
+  
   // 인스턴스 메서드
   // => 인스턴스가 있어야만 호출할 수 있는 메서드이다.
   // => 인스턴스를 사용하는 메서드인 경우 인스턴스 메서드로 선언하라.
@@ -63,7 +64,8 @@ public class BoardHandler {
       System.out.printf("%d, %s, %s, %d\n", 
           b.no, b.title, b.date, b.viewCount);
     }   
-  } 
+  }
+  
 
   public void addBoard() {
     Board board = new Board();
@@ -105,6 +107,5 @@ public class BoardHandler {
     System.out.printf("제목: %s\n", board.title);
     System.out.printf("등록일: %s\n", board.date);
     System.out.printf("조회수: %d\n", board.viewCount);    
-
   }
 }

@@ -7,9 +7,9 @@
 
 ## 실습 소스 및 결과
 
-- src/main/java/com/eomcs/util/AbstractList.java 변경
-- src/main/java/com/eomcs/util/Stack.java 변경
-- src/main/java/com/eomcs/util/Queue.java 변경
+- src/main/java/nayoung.cooknayoung.util/AbstractList.java 변경
+- src/main/java/nayoung.cooknayoung.util/Stack.java 변경
+- src/main/java/nayoung.cooknayoung.util/Queue.java 변경
 
 ## 실습
 
