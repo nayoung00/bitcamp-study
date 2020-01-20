@@ -6,6 +6,7 @@ package com.eomcs.corelib.ex01;
 public class Exam0170 {
   
   static class Score {
+
     String name;
     int kor;
     int eng;
@@ -32,6 +33,7 @@ public class Exam0170 {
   }
   
   public static void main(String[] args) {
+    
     Score s1 = new Score("홍길동", 100, 100, 100);
     System.out.println(s1);
     
@@ -57,7 +59,6 @@ public class Exam0170 {
     // 해결책:
     // => Object에서 상속 받은 clone()을 오버라이딩 하라!
     // => Test12_2.java 를 살펴보라!
-  
   }
 }
 
