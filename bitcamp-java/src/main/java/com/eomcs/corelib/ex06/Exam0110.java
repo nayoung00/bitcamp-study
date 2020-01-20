@@ -14,7 +14,7 @@ public class Exam0110 {
 
     Queue queue = new Queue();
     queue.offer(s1); // aaa,
-    print(queue); 
+    print(queue);
     queue.offer(s2); // aaa, bbb,
     print(queue);
     queue.offer(s3); // aaa, bbb, ccc,
@@ -41,26 +41,6 @@ public class Exam0110 {
       System.out.print(list.get(i) + ", ");
     }
     System.out.println();
-  }    
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -1,4 +1,5 @@
 // String - mutable vs immutable 객체
+
 package com.eomcs.corelib.ex02;
 
 public class Exam0130 {
@@ -8,7 +9,7 @@ public class Exam0130 {
 
     String s1 = new String("Hello");
 
-    // String 클래스의 메서드는 원본 인스턴스의 데이터를 변경하지 않는다. 
+    // String 클래스의 메서드는 원본 인스턴스의 데이터를 변경하지 않는다.
     // 다만 새로 String 객체를 만들 뿐이다.
     String s2 = s1.replace('l', 'x');
     System.out.printf("%s : %s\n", s1, s2); // 원본은 바뀌지 않는다.
@@ -17,8 +18,3 @@ public class Exam0130 {
     System.out.printf("%s : %s\n", s1, s3); // 원본은 바뀌지 않는다.
   }
 }
-
-
-
-
-
