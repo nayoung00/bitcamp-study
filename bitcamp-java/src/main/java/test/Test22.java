@@ -1,9 +1,8 @@
-// java.util.concurrent.ArrayBlockingQueue 사용
-package com.eomcs.corelib.ex06;
+package test;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
-public class Exam0120 {
+public class Test22 {
 
   public static void main(String[] args) {
     String s1 = new String("aaa");
@@ -13,21 +12,21 @@ public class Exam0120 {
     String s5 = new String("eee");
 
     ArrayBlockingQueue queue = new ArrayBlockingQueue(100);
-    queue.offer(s1); // aaa,
+    queue.offer(s1);
     print(queue);
-    queue.offer(s2); // aaa, bbb,
+    queue.offer(s2);
     print(queue);
-    queue.offer(s3); // aaa, bbb, ccc,
-    print(queue);
-
-    System.out.println("==>" + queue.poll()); // bbb, ccc,
-    print(queue);
-    System.out.println("==>" + queue.poll()); // ccc,
+    queue.offer(s3);
     print(queue);
 
-    queue.offer(s4); // ccc, ddd,
+    System.out.println("==>" + queue.poll());
     print(queue);
-    queue.offer(s5); // ccc, ddd, eee,
+    System.out.println("==>" + queue.poll());
+    print(queue);
+
+    queue.offer(s4);
+    print(queue);
+    queue.offer(s5);
     print(queue);
 
     String value;
@@ -36,13 +35,11 @@ public class Exam0120 {
     }
   }
 
-  static void print(ArrayBlockingQueue list) {
+  private static void print(ArrayBlockingQueue list) {
     Object[] arr = list.toArray();
     for (Object value : arr) {
-      System.out.print(value + ", ");
+      System.out.println(value + ", ");
     }
     System.out.println();
   }
 }
-
-

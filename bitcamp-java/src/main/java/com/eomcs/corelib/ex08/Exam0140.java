@@ -58,7 +58,8 @@ public class Exam0140 {
     System.out.println(map.get(k4));
     System.out.println(map.get(k5));
 
-    MyKey k6 = new MyKey("컴공", 3); // k3와 같은 값을 갖는다.
+    MyKey k6 = new MyKey("컴공", 3);
+    // k3와 같은 값을 갖는다.
     // 하지만 인스턴스는 다르다!
     System.out.println(k3 == k6);
     System.out.printf("equals(): %b\n", k3.equals(k6));

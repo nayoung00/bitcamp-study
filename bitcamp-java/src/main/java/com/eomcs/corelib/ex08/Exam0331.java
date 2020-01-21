@@ -24,9 +24,9 @@ public class Exam0331 {
     Iterator iterator = keys.iterator();
 
 
-    table.remove("s01");
-    table.remove("s02");
-    table.remove("s03");
+    // table.remove("s01");
+    // table.remove("s02");
+    // table.remove("s03");
 
     while (iterator.hasNext()) {
       System.out.println(iterator.next());
