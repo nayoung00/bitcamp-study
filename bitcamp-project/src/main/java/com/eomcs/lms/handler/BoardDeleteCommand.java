@@ -39,5 +39,4 @@ public class BoardDeleteCommand implements Command {
     }
     return -1;
   }
-
 }

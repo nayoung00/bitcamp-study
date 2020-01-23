@@ -12,9 +12,6 @@ public class Exam0321 {
   }
 
   public static void main(String[] args) {
-
-
-
     test(new Calculator() {
       @Override
       public int compute(int a, int b) {

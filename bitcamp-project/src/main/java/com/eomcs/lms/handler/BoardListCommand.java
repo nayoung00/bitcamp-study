@@ -22,5 +22,4 @@ public class BoardListCommand implements Command {
       System.out.printf("%d, %s, %s, %d\n", b.getNo(), b.getTitle(), b.getDate(), b.getViewCount());
     }
   }
-
 }
