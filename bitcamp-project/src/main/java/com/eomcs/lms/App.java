@@ -155,7 +155,6 @@ public class App {
 
     try (FileReader in = new FileReader(file)) {
 
-
       // 방법1) JSON ===> List
       // Gson json도구 = new Gson();
       // Lesson[] 배열 = json도구.fromJson(in, Lesson[].class);
@@ -250,5 +249,3 @@ public class App {
     }
   }
 }
-
-
