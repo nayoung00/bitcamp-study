@@ -1,4 +1,4 @@
-// Byte Stream - 바이트 배열의 특정 부분을 출력하기 
+// Byte Stream - 바이트 배열의 특정 부분을 출력하기
 package com.eomcs.io.ex02;
 
 import java.io.FileOutputStream;
@@ -15,7 +15,5 @@ public class Exam0310 {
     out.close();
 
     System.out.println("데이터 출력 완료!");
-
   }
-
 }

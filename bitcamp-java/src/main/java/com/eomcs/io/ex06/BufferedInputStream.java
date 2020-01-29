@@ -20,7 +20,8 @@ public class BufferedInputStream extends FileInputStream {
       }
       cursor = 0;
     }
-    return buf[cursor++] & 0x000000ff;
+    return buf[cursor++] & 0x000000ff; 
+    
   }
 }
 

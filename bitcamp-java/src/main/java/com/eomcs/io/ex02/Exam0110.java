@@ -62,7 +62,6 @@ public class Exam0110 {
 //      +-- FileReader : 문자 단위로 읽기 (character stream)
 //
 // 2) 데이터 쓰기
-// 
 //    OutputStream (추상 클래스)
 //      +-- FileOutputStream : 바이트 단위로 쓰기 (binary stream)
 // 

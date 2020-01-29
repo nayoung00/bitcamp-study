@@ -6,21 +6,22 @@ import java.io.FileInputStream;
 public class Exam0110 {
 
   public static void main(String[] args) throws Exception {
-    FileInputStream in = new FileInputStream("temp/jls8.pdf");
+    FileInputStream in = new FileInputStream("temp/jls11.pdf");
 
     int b;
 
     long startTime = System.currentTimeMillis(); // 밀리초
 
     int callCount = 0;
-    while ((b = in.read()) != -1) callCount++; // 파일을 끝까지 읽는다.
+    while ((b = in.read()) != -1) {
+      callCount++; // 파일을 끝까지 읽는다.
+    }
 
-    long endTime = System.currentTimeMillis();
+    long endTime = System.currentTimeMillis(); // 빠져나갔을때 시간 측정
 
-    System.out.println(endTime - startTime);
+    System.out.println(endTime - startTime); // 경과시간 출력
     System.out.println(callCount);
 
     in.close();
   }
-
 }

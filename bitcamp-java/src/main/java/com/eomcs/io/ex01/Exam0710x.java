@@ -8,18 +8,6 @@ public class Exam0710x {
 
   public static void main(String[] args) throws Exception {
 
-    // 결과 예)
-    // /Users/bitcamp/git/test
-    // src/
-    // mian/
-    // javja/
-    // com/
-    // Hello.java
-    // HEllo2.java
-    // build.gradle
-    // settings.gradle
-    // Hello.java
-    // ...
 
     File dir = new File(".");
     System.out.println(dir.getCanonicalPath());
@@ -28,7 +16,6 @@ public class Exam0710x {
   }
 
   static void printList(File dir, int level) {
-
     File[] files = dir.listFiles();
 
     for (File file : files) {
@@ -38,16 +25,14 @@ public class Exam0710x {
         System.out.printf("%s/\n", file.getName());
         printList(file, level + 1);
       } else {
-        System.out.printf("\\-- ");
         System.out.printf("%s\n", file.getName());
-
       }
     }
   }
 
   static void printIndent(int level) {
     for (int i = 0; i < level; i++) {
-      System.out.printf("  ");
+      System.out.print(" ");
     }
   }
 }
