@@ -30,8 +30,6 @@ public class Exam0210 {
     System.out.printf("감춤여부: %b\n", file1.isHidden());
     System.out.printf("존재여부: %b\n", file1.exists());
     System.out.printf("실행가능여부: %b\n", file1.canExecute());
-
-
   }
 
 }

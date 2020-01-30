@@ -6,6 +6,7 @@ import java.io.FilenameFilter;
 
 public class Exam0611 {
 
+
   public static void main(String[] args) throws Exception {
 
     class JavaFilter implements FilenameFilter {
@@ -36,7 +37,9 @@ public class Exam0611 {
     for (String name : names) {
       System.out.println(name);
     }
+
   }
+
 }
 
 

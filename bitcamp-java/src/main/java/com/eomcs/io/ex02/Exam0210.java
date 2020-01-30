@@ -20,4 +20,5 @@ public class Exam0210 {
     System.out.println("데이터 출력 완료!");
 
   }
+
 }

@@ -1,4 +1,4 @@
-// 익명 클래스로 파일 필터 만들기 .
+// 익명 클래스로 FileFilter 만들기
 package com.eomcs.io.ex01;
 
 import java.io.File;
@@ -29,7 +29,9 @@ public class Exam0630 {
       System.out.printf("%s %12d %s\n", file.isDirectory() ? "d" : "-", file.length(),
           file.getName());
     }
+
   }
+
 }
 
 

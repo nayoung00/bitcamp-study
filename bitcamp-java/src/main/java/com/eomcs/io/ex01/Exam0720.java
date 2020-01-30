@@ -6,6 +6,8 @@ import java.io.File;
 public class Exam0720 {
 
   public static void main(String[] args) throws Exception {
+
+    // temp 디렉토리를 삭제하기
     File dir = new File("temp");
 
     deleteFile(dir);
@@ -22,5 +24,7 @@ public class Exam0720 {
     }
     dir.delete(); // 디렉토리 삭제
   }
+
 }
+
 

@@ -6,14 +6,12 @@ import java.io.FileFilter;
 
 public class Exam0731 {
 
-
   public static void main(String[] args) throws Exception {
 
     File dir = new File("bin/main");
     System.out.println(dir.getCanonicalPath());
 
     printList(dir, "");
-
   }
 
   static void printList(File dir, String packageName) {
@@ -24,6 +22,7 @@ public class Exam0731 {
         if (pathname.isHidden()) {
           return false;
         }
+
         if (pathname.getName().contains("$")) {
           return false;
         }
@@ -53,4 +52,7 @@ public class Exam0731 {
       System.out.print("  ");
     }
   }
+
 }
+
+

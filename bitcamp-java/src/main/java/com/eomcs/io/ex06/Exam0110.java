@@ -17,11 +17,12 @@ public class Exam0110 {
       callCount++; // 파일을 끝까지 읽는다.
     }
 
-    long endTime = System.currentTimeMillis(); // 빠져나갔을때 시간 측정
+    long endTime = System.currentTimeMillis();
 
-    System.out.println(endTime - startTime); // 경과시간 출력
+    System.out.println(endTime - startTime);
     System.out.println(callCount);
 
     in.close();
   }
+
 }

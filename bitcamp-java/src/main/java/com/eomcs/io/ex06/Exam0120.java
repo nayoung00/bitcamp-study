@@ -24,4 +24,5 @@ public class Exam0120 {
     System.out.println(callCount);
     in.close();
   }
+
 }

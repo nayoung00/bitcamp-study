@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 public class Exam0220 {
 
   public static void main(String[] args) throws Exception {
+
     FileInputStream in = new FileInputStream("temp/test1.data");
 
     // 바이트들을 저장할 배열을 넉넉히 준비한다.
@@ -27,7 +28,8 @@ public class Exam0220 {
       System.out.printf("%x ", buf[i]);
 
     System.out.println();
-
   }
 
 }
+
+

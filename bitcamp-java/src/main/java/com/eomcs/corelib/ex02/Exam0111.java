@@ -1,4 +1,4 @@
-// String - equals(), hashCode()
+/// String - equals(), hashCode()
 package com.eomcs.corelib.ex02;
 
 public class Exam0111 {
@@ -26,7 +26,6 @@ public class Exam0111 {
 
     // Object로부터 상속 받은 toString()은 "클래스명@해시값"을 리턴한다.
     System.out.printf("%s, %s\n", m1.toString(), m2.toString());
-
     // Object로부터 상속 받은 equals()는 인스턴스가 같은지 검사한다.
     System.out.printf("%b\n", m1.equals(m2)); // false
 

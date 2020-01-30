@@ -11,7 +11,7 @@ public class Exam0120 {
     // => 파일이나 디렉토리를 생성,삭제,변경
 
     // 상위 폴더 정보 조회
-    // ".." 으로 경로를 표시한다.
+    // - ".." 으로 경로를 표시한다.
     //
     File currentDir = new File("..");
     System.out.printf("폴더명: %s\n", currentDir.getName());
@@ -30,9 +30,6 @@ public class Exam0120 {
     System.out.printf("감춤폴더: %b\n", currentDir.isHidden());
     System.out.printf("존재여부: %b\n", currentDir.exists());
     System.out.printf("실행가능여부: %b\n", currentDir.canExecute());
-
-    System.out.println("----------------------------");
-
   }
 
 }

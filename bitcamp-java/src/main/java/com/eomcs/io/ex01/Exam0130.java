@@ -10,7 +10,7 @@ public class Exam0130 {
     // => 파일이나 디렉토리 정보를 관리
     // => 파일이나 디렉토리를 생성,삭제,변경
 
-    // 존재하지 않는 폴더 조회
+    // 존재하지 않는 폴더를 조회
     //
     File currentDir = new File("./haha");
     System.out.printf("폴더명: %s\n", currentDir.getName());
@@ -29,9 +29,6 @@ public class Exam0130 {
     System.out.printf("감춤폴더: %b\n", currentDir.isHidden());
     System.out.printf("존재여부: %b\n", currentDir.exists());
     System.out.printf("실행가능여부: %b\n", currentDir.canExecute());
-
-    System.out.println("----------------------------");
-
   }
 
 }
