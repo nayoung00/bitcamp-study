@@ -1,21 +1,20 @@
-# 32_5 - 특정 기능을 수행하는 코드를 메서드로 분리하기
+# 32_7 - 데이터 처리 코드를 별도의 클래스로 정의하여 객체화 시키기
 
 ## 학습목표
 
-- 데이터 파일을 읽고 쓸 수 있다.
+- DAO(Data Access Object)의 역할과 이점을 이해한다.
+- 데이터 처리 코드를 DAO로 분리할 수 있다.
+
+### DAO ( Data Access Object) 
+
+- 데이터 처리 역할을 수행하는 객체이다.
+- 데이터 처리 방식을 캡슐화(추상화 = 클래스로 정의)하여 객체의 사용법을 일관성 있게 만든다.
+  - 즉 데이터 처리 방식(배열, 스택, 큐, 맵, 파일, 데이터베이스 등)을 
+    클래스로 포장(캡슐화) 하면 데이터 처리 방식에 상관없이 메서드 사용을 통일할 수 있다.
+    
 
 ## 실습 소스 및 결과
 
-- src/main/java/com/eomcs/lms/domain 패키지 생성
-- src/main/java/com/eomcs/lms/domain/Board.java 추가
-- src/main/java/com/eomcs/lms/domain/Lesson.java 추가
-- src/main/java/com/eomcs/lms/domain/Member.java 추가
-- src/main/java/com/eomcs/lms/context 패키지 생성
-- src/main/java/com/eomcs/lms/context/ApplicationContextListener.java 추가
-- src/main/java/com/eomcs/lms/DataLoaderListener.java 추가
-- src/main/java/com/eomcs/lms/ServerApp.java 변경
-
-## 실습  
 
 ### 훈련 1: 31번 프로젝트에서 데이터를 저장하고 로딩하는 코드를 가져오라.
 
