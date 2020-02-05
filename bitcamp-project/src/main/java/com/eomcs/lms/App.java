@@ -87,7 +87,6 @@ public class App {
   @SuppressWarnings("unchecked")
   public void service() {
 
-
     // 애플리케이션이 시작되면 등록된 옵저버를 실행한다.
     // 즉 DataLoaderListener를 실행한다.
     //
@@ -184,12 +183,12 @@ public class App {
     }
   }
 
-
   public static void main(String[] args) {
     App app = new App();
 
     // 애플리케이션의 상태를 정보를 받을 옵저버를 등록한다.
     app.addApplicationContextListener(new DataLoaderaListener());
+    app.addApplicationContextListener(new GreetingListener());
 
     app.service();
   }
