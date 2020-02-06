@@ -24,7 +24,7 @@ public class LessonUpdateCommand implements Command {
     try {
       int no = prompt.inputInt("번호? ");
 
-      out.writeUTF("/lesson/detail");
+      out.writeUTF("/lesson/update");
       out.writeInt(no);
       out.flush();
 

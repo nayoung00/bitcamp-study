@@ -11,12 +11,12 @@
 
 ## 실습  
 
-### 훈련 1: 커맨드 패턴의 인터페이스 정의하라.
+### 훈련 1: 커맨드 패턴의 인터페이스 정의하기.
 
 - com.eomcs.lms.servlet 패키지를 생성한다.
 - com.eomcs.lms.servlet.Servlet 인터페이스를 정의한다.
 
-### 훈련 2: 각각의 요청 처리 메서드를 인터페이스 규칙에 따라 클래스를 정의하라.
+### 훈련 2: 각각의 요청 처리 메서드를 인터페이스 규칙에 따라 클래스를 정의하기.
  
 - listBoard()를 BoardListServlet 클래스로 정의한다.
 - addBoard()를 BoardAddServlet 클래스로 정의한다.
