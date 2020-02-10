@@ -57,7 +57,6 @@ public class BoardDaoProxy implements BoardDao {
     if (response.equals("FAIL")) {
       throw new Exception(in.readUTF());
     }
-
     return (Board) in.readObject();
   }
 

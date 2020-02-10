@@ -88,23 +88,32 @@ public class ClientApp {
     /*
      * String serverAddr = null; int port = 0;
      * 
-     * // 키보드 스캐너 준비 Scanner keyScan = new Scanner(System.in); try { // 사용자로부터 접속할 서버의 주소와 포트 번호를 입력
-     * 받는다. System.out.print("서버?"); serverAddr = keyScan.nextLine();
+     * // 키보드 스캐너 준비 
+     * Scanner keyScan = new Scanner(System.in); 
+     * try { 
+     * // 사용자로부터 접속할 서버의 주소와 포트 번호를 입력
+     * 받는다. 
+     * System.out.print("서버?"); serverAddr = keyScan.nextLine();
      * 
      * System.out.print("포트?"); port = Integer.parseInt(keyScan.nextLine());
      * 
      * 
-     * } catch (Exception e) { System.out.println("서버 주소 또는 포트 번호가 유효하지 않습니다."); keyScan.close();
+     * } catch (Exception e) { 
+     * System.out.println("서버 주소 또는 포트 번호가 유효하지 않습니다."); keyScan.close();
      * return; }
      * 
-     * try ( // 서버와 연결 Socket socket = new Socket(serverAddr, port);
+     * try ( 
+     * // 서버와 연결 
+     * Socket socket = new Socket(serverAddr, port);
      * 
-     * // 소켓을 통해 데이터를 읽고 쓰는 도구를 준비한다. PrintStream out = new PrintStream(socket.getOutputStream());
+     * // 소켓을 통해 데이터를 읽고 쓰는 도구를 준비한다. 
+     * PrintStream out = new PrintStream(socket.getOutputStream());
      * Scanner in = new Scanner(socket.getInputStream())) {
      * 
      * System.out.println("서버와 연결되었음!");
      * 
-     * System.out.print("서버에 보낼 메시지: "); String sendMsg = keyScan.nextLine();
+     * System.out.print("서버에 보낼 메시지: "); 
+     * String sendMsg = keyScan.nextLine();
      * 
      * out.println(sendMsg);
      * 

@@ -38,10 +38,8 @@ public class ClientApp {
   Prompt prompt = new Prompt(keyboard);
 
   public void service() {
-
     String serverAddr = null;
     int port = 0;
-
     try {
       serverAddr = prompt.inputString("서버? ");
       port = prompt.inputInt("포트? ");

@@ -114,7 +114,6 @@ public class ClientApp {
         }
 
         commandStack.push(command);
-
         commandQueue.offer(command);
 
         Command commandHandler = commandMap.get(command);
