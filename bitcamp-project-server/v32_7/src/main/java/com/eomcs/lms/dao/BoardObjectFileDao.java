@@ -42,7 +42,6 @@ public class BoardObjectFileDao {
 
     try (ObjectOutputStream out =
         new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)))) {
-      out.reset(); // 기존에 직렬화 수행 중에 캐시된(임시보관된) 데이터를 초기화시킨다.
       out.writeObject(list);
       System.out.printf("총 %d 개의 게시물 데이터를 저장했습니다.\n", list.size());
 

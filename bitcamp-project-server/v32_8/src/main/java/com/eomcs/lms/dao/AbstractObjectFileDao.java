@@ -54,7 +54,6 @@ public abstract class AbstractObjectFileDao<T> {
 
     }
   }
-
   // 서브 클래스들의 공통 메서드이기 때문에
   // => 수퍼 클래스에 정의한다.
   // 서브 클래스에서 접근할 수 있어야 하기 때문에
