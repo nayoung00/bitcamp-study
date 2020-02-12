@@ -1,10 +1,10 @@
-package com.eomcs.corelib.ex01;
+package com.eomcs.algorithm.data_structure.corelib.ex01;
 
 public class Student {
   String name;
   int age;
   boolean working;
-  
+
   public Student(String name, int age, boolean working) {
     this.name = name;
     this.age = age;

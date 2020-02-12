@@ -41,7 +41,7 @@ public class CalcServer {
       InetSocketAddress remoteAddr = (InetSocketAddress) socket.getRemoteSocketAddress();
       System.out.printf("클라이언트(%s)가 연결되었음!\n", //
           remoteAddr.getAddress(), remoteAddr.getPort());
-
+      
       // 연결된 클라이언트가 연결을 끊기 전까지는
       // 대기하고 있는 다른 클라이언트의 요청을 처리할 수 없다.
       // 이것이 스레드를 사용하기 전의 문제점이다.

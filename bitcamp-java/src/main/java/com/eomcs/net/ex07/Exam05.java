@@ -9,8 +9,8 @@ public class Exam05 {
     // 로컬 자원의 위치를 URL로 표현하는 방법
     // => Windows
     URL url = new URL("file:///c:/Users/user/git/bitcamp-study/Hello.java");
-
-
+    
+    
     // URL 분석
     System.out.printf("프로토콜: %s\n", url.getProtocol());
     System.out.printf("서버주소: %s\n", url.getHost());
