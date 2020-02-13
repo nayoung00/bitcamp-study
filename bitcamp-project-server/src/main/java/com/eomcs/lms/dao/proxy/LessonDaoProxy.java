@@ -6,7 +6,6 @@ import java.util.List;
 import com.eomcs.lms.dao.LessonDao;
 import com.eomcs.lms.domain.Lesson;
 
-
 public class LessonDaoProxy implements LessonDao {
 
   ObjectInputStream in;
@@ -83,7 +82,4 @@ public class LessonDaoProxy implements LessonDao {
     }
     return 1;
   }
-
-
-
 }

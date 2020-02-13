@@ -19,6 +19,7 @@ public class BoardDetailServlet implements Servlet {
     Board board = boardDao.findByNo(no);
 
     if (board != null) {
+      Thread.sleep(6000000);
       out.writeUTF("OK");
       out.writeObject(board);
     } else {
