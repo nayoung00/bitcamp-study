@@ -136,9 +136,7 @@ public class ClientApp {
         return;
       }
       commandHandler.execute();
-    } catch (
-
-    Exception e) {
+    } catch (Exception e) {
       System.out.printf("명령어 실행 중 오류 발생: %s\n", e.getMessage());
       e.printStackTrace();
     }

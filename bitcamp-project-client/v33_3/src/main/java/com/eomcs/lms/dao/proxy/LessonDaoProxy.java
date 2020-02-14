@@ -57,7 +57,6 @@ public class LessonDaoProxy implements LessonDao {
       if (response.equals("FAIL")) {
         throw new Exception(in.readUTF());
       }
-
       return (Lesson) in.readObject();
     });
   }
