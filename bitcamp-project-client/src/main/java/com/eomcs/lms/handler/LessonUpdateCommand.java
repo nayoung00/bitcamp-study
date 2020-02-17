@@ -49,10 +49,7 @@ public class LessonUpdateCommand implements Command {
 
       newLesson.setDayHours(prompt.inputInt(String.format("일수업시간(%d)? ", oldLesson.getDayHours()),
           oldLesson.getDayHours()));
-      if (newLesson.equals(oldLesson)) {
-        System.out.println("수업 변경을 취소하였습니다.");
-        return;
-      }
+
       oldLesson.equals(newLesson);
       System.out.println("수업을 변경했습니다.");
     } catch (Exception e) {

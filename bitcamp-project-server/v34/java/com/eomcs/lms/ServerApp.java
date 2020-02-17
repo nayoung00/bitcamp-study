@@ -40,8 +40,6 @@ public class ServerApp {
   // 커맨드(예: Servlet 구현체) 디자인 패턴과 관련된 코드
   Map<String, Servlet> servletMap = new HashMap<>();
 
-
-
   public void addApplicationContextListener(ApplicationContextListener listener) {
     listeners.add(listener);
   }

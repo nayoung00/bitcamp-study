@@ -50,10 +50,6 @@ public class MemberUpdateCommand implements Command {
 
       newMember.setRegisteredDate(oldMember.getRegisteredDate());
 
-      if (newMember.equals(oldMember)) {
-        System.out.println("회원 변경을 취소하였습니다.");
-        return;
-      }
       memberDao.update(newMember);
       System.out.println("회원을 변경했습니다.");
     } catch (Exception e) {
