@@ -1,6 +1,7 @@
 package com.eomcs.lms.dao.mariadb;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -9,17 +10,18 @@ import com.eomcs.lms.dao.BoardDao;
 import com.eomcs.lms.domain.Board;
 
 public class BoardDaoImpl implements BoardDao {
-  Connection con;
-
-  public BoardDaoImpl(Connection con) {
-    this.con = con;
-
-  }
 
   @Override
   public int insert(Board board) throws Exception {
+    Class.forName("org.mariadb.jdbc.Driver");
 
-    try (Statement stmt = con.createStatement()) {
+    try (
+        Connection con =
+            DriverManager.getConnection("jdbc:mariadb://localhost:3306/studydb", "study", "1111");
+
+
+
+        Statement stmt = con.createStatement()) {
 
       con.setAutoCommit(true);
 
@@ -36,8 +38,16 @@ public class BoardDaoImpl implements BoardDao {
 
   @Override
   public List<Board> findAll() throws Exception {
+    // JDBC Driver(MariaDB 프록시)를 로딩한다.
+    Class.forName("org.mariadb.jdbc.Driver");
 
-    try (Statement stmt = con.createStatement();
+    try (
+        // JDBC Driver를 이용하여 MariaDB에 접속한다.
+        Connection con =
+            DriverManager.getConnection("jdbc:mariadb://localhost:3306/studydb", "study", "1111");
+
+        // MariaDB에 명령을 전달할 객체 준비
+        Statement stmt = con.createStatement();
 
         // MariaDB
         ResultSet rs = stmt.executeQuery("select board_id, conts, cdt, vw_cnt from lms_board")) {
@@ -60,7 +70,13 @@ public class BoardDaoImpl implements BoardDao {
 
   @Override
   public Board findByNo(int no) throws Exception {
-    try (Statement stmt = con.createStatement();
+    Class.forName("org.mariadb.jdbc.Driver");
+
+    try (
+        Connection con =
+            DriverManager.getConnection("jdbc:mariadb://localhost:3306/studydb", "study", "1111");
+
+        Statement stmt = con.createStatement();
 
         ResultSet rs = stmt.executeQuery(
             "select board_id, conts, cdt, vw_cnt from lms_board where board_id=" + no)) {
@@ -83,8 +99,13 @@ public class BoardDaoImpl implements BoardDao {
 
   @Override
   public int update(Board board) throws Exception {
+    Class.forName("org.mariadb.jdbc.Driver");
 
-    try (Statement stmt = con.createStatement()) {
+    try (
+        Connection con =
+            DriverManager.getConnection("jdbc:mariadb://localhost:3306/studydb", "study", "1111");
+
+        Statement stmt = con.createStatement()) {
 
       // DBMS에게 데이터를 변경하라는 명령을 보낸다.
       // SQL 문법:
@@ -98,8 +119,12 @@ public class BoardDaoImpl implements BoardDao {
 
   @Override
   public int delete(int no) throws Exception {
+    Class.forName("org.mariadb.jdbc.Driver");
 
-    try (Statement stmt = con.createStatement()) {
+    try (
+        Connection con =
+            DriverManager.getConnection("jdbc:mariadb://localhost:3306/studydb", "study", "1111");
+        Statement stmt = con.createStatement()) {
 
       // DBMS에게 데이터를 삭제하라는 명령을 보낸다.
       // SQL 문법:

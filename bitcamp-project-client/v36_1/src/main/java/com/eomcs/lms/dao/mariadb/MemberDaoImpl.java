@@ -1,6 +1,7 @@
 package com.eomcs.lms.dao.mariadb;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -9,17 +10,15 @@ import com.eomcs.lms.dao.MemberDao;
 import com.eomcs.lms.domain.Member;
 
 public class MemberDaoImpl implements MemberDao {
-  Connection con;
-
-  public MemberDaoImpl(Connection con) {
-    this.con = con;
-
-  }
 
   @Override
   public int insert(Member member) throws Exception {
+    Class.forName("org.mariadb.jdbc.Driver");
 
-    try (Statement stmt = con.createStatement()) {
+    try (
+        Connection con =
+            DriverManager.getConnection("jdbc:mariadb://localhost:3306/studydb", "study", "1111");
+        Statement stmt = con.createStatement()) {
 
       con.setAutoCommit(true);
 
@@ -34,8 +33,11 @@ public class MemberDaoImpl implements MemberDao {
   @Override
   public List<Member> findAll() throws Exception {
 
+    Class.forName("org.mariadb.jdbc.Driver");
 
     try (
+        Connection con =
+            DriverManager.getConnection("jdbc:mariadb://localhost:3306/studydb", "study", "1111");
 
         Statement stmt = con.createStatement();
 
@@ -64,8 +66,11 @@ public class MemberDaoImpl implements MemberDao {
 
   @Override
   public Member findByNo(int no) throws Exception {
+    Class.forName("org.mariadb.jdbc.Driver");
 
     try (
+        Connection con =
+            DriverManager.getConnection("jdbc:mariadb://localhost:3306/studydb", "study", "1111");
 
         Statement stmt = con.createStatement();
 
@@ -94,7 +99,10 @@ public class MemberDaoImpl implements MemberDao {
 
   @Override
   public int update(Member member) throws Exception {
+    Class.forName("org.mariadb.jdbc.Driver");
     try (
+        Connection con =
+            DriverManager.getConnection("jdbc:mariadb://localhost:3306/studydb", "study", "1111");
 
         Statement stmt = con.createStatement()) {
 
@@ -109,7 +117,10 @@ public class MemberDaoImpl implements MemberDao {
 
   @Override
   public int delete(int no) throws Exception {
+    Class.forName("org.mariadb.jdbc.Driver");
     try (
+        Connection con =
+            DriverManager.getConnection("jdbc:mariadb://localhost:3306/studydb", "study", "1111");
 
         Statement stmt = con.createStatement()) {
 
