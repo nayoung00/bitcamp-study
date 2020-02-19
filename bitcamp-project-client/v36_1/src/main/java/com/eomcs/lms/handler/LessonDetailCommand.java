@@ -17,7 +17,6 @@ public class LessonDetailCommand implements Command {
 
   @Override
   public void execute() {
-
     try {
       int no = prompt.inputInt("번호? ");
 
@@ -35,5 +34,3 @@ public class LessonDetailCommand implements Command {
     }
   }
 }
-
-

@@ -20,7 +20,6 @@ public class LessonUpdateCommand implements Command {
     try {
       int no = prompt.inputInt("번호? ");
 
-
       Lesson oldLesson = null;
       try {
         oldLesson = lessonDao.findByNo(no);

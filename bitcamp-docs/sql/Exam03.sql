@@ -1,4 +1,4 @@
-# DQL(Data Query Language)
+ # DQL(Data Query Language)
 데이터를 조회할 때 사용하는 문법
 
 ## 테스트 용 테이블 및 데이터 준비
@@ -87,6 +87,21 @@ where working='Y' or class='java100';
 select no, name, class, working
 from test1
 where working='Y' and class='java100';
+
+
+/* 주의!
+ * where 절을 통해 결과 데이터를 먼저 선택(selection)한 다음
+ * 결과 데이터에서 가져올 컬럼을 선택(projection)한다. 
+ * 따라서 실행 순서는:
+ * from ==> where ==> select 
+ */
+select no, name
+from test1
+where working='Y' and class='java100';
+
+select no, name, class, working
+from test1
+where not working='Y';
 
 /* 재직자가 아닌 사람만 조회하라!*/
 select no, name, class, working
@@ -286,8 +301,8 @@ select date_format(now(), '%p %h %H %l'); /* PM 01 13 1 */
 select date_format(now(), '%i %s'); /* 05 45 */
 
 /* 문자열을 날짜 값으로 바꾸기 */
-select str_to_date('11/22/2017', '%m/%d/%Y');
-select str_to_date('2017.2.12', '%Y.%m.%d');
+	select str_to_date('11/22/2017', '%m/%d/%Y');
+	select str_to_date('2017.2.12', '%Y.%m.%d');
 
 
 /* 날짜 값을 저장할 때 기본 형식은 yyyy-MM-dd이다. */

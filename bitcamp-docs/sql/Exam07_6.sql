@@ -4,7 +4,14 @@
 */
 
 /* join이용하여 데이터를 추출한 방법 */
-select la.lano, l.titl, m.name, s.work, la.rdt, r.name, m2.name, mr.posi
+select la.lano, 
+l.titl, 
+m.name, 
+s.work, 
+la.rdt, 
+r.name,
+m2.name,
+mr.posi
 from lect_appl la 
         inner join memb m on la.mno=m.mno
         inner join stnt s on la.mno=s.mno 
@@ -16,7 +23,11 @@ from lect_appl la
 /* select 절에 서브쿼리 사용하기 */
 
 /* => 1단계: 수강신청 데이터를 출력 */
-select la.lano, la.lno, la.mno, la.rdt
+select 
+la.lano, 
+la.lno, 
+la.mno, 
+date_format(la.rdt, '%Y-%m-%d') reg_dt
 from lect_appl la; 
 
 /* => 2단계 : 서브 쿼리를 이용하여 강의명을 가져오기 */
@@ -52,13 +63,13 @@ select
     (select name from room where rno=l.rno) as room_name, 
     (select name from memb where mno=l.mno) as manager_name,
     (select posi from mgr where mno=l.mno) as manager_posi
-from lect l
+from lect l;
 
 /* 2단계: 위에서 준비한 select 결과를 가상 테이블로 사용하여 
              기존의 lect_appl 테이블과 조인한다.*/
 select 
     la.lano, 
-    (select titl from lect where lno=la.lno) as lect_title, 
+   -- (select titl from lect where lno=la.lno) as lect_title, 
     (select name from memb where mno=la.mno) as stud_name,
     lec.titl,
     lec.room_name,
@@ -73,6 +84,7 @@ from lect_appl la
                 (select posi from mgr where mno=l.mno) as manager_posi
             from lect l) as lec on la.lno=lec.lno;
 
+            
 /* from 절에서 반복적으로 사용하는 서브 쿼리가 있다면,
  * 차라리 가상 테이블인 view로 정의해놓고 사용하는 것이 편하다. 
  */ 
@@ -119,9 +131,11 @@ where
                        from
                            mgr 
                        where 
-                           posi in ('과장', '대리'));
+                           posi in ('과장', '주임'));
 
 
+MariaDB [studydb]> select mno from mgr where posi='과장' || posi='대리';
+MariaDB [studydb]> select mno from mgr where posi in('과장', '대리');
 
 
 

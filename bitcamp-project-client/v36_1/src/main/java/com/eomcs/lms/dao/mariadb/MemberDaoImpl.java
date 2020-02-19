@@ -38,9 +38,7 @@ public class MemberDaoImpl implements MemberDao {
     try (
         Connection con =
             DriverManager.getConnection("jdbc:mariadb://localhost:3306/studydb", "study", "1111");
-
         Statement stmt = con.createStatement();
-
         ResultSet rs = stmt
             .executeQuery("select member_id, name, email, pwd, cdt, tel, photo from lms_member");) {
 
@@ -77,7 +75,6 @@ public class MemberDaoImpl implements MemberDao {
         ResultSet rs = stmt.executeQuery(
             "select member_id, name, email, pwd, cdt, tel, photo from lms_member where member_id="
                 + no)) {
-
 
       if (rs.next()) {
         Member member = new Member();

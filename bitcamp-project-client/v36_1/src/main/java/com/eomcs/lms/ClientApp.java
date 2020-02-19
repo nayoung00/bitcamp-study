@@ -55,8 +55,6 @@ public class ClientApp {
     commandStack = new ArrayDeque<>();
     commandQueue = new LinkedList<>();
 
-    // DAO 프록시의 서버 연결을 도와줄 도우미 객체 준비
-    DaoProxyHelper daoProxyHelper = new DaoProxyHelper(host, port);
 
     // MariaDB 와 연동하여 데이터를 처리하는 DAO 객체 준비
     BoardDao boardDao = new BoardDaoImpl();

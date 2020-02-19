@@ -19,6 +19,10 @@ public class LessonDaoImpl implements LessonDao {
         "jdbc:mariadb://localhost:3306/studydb", "study", "1111");
         Statement stmt = con.createStatement()) {
 
+      // DBMS에게 데이터 입력하라는 명령을 보낸다.
+      // SQL 문법:
+      // insert into 테이블명(컬럼명1,컬럼명2,...) values(값1,값2, ...)
+      // => executeUpdate()의 리턴 값은 서버에 입력된 데이터의 개수이다.
       int result = stmt.executeUpdate(
           "insert into lms_lesson(sdt, edt, tot_hr, day_hr, titl, conts)" + " values('"
               + lesson.getStartDate().toString() + "', '" + lesson.getEndDate().toString() + "', "
@@ -92,13 +96,17 @@ public class LessonDaoImpl implements LessonDao {
         "jdbc:mariadb://localhost:3306/studydb", "study", "1111");
         Statement stmt = con.createStatement()) {
 
+      // DBMS에게 데이터를 변경하라는 명령을 보낸다.
+      // SQL 문법:
+      // => update 테이블명 set 컬럼명1= 값1, 컬럼명2 = 값2,..., where 조건
+      // => executeUpdate()의 리턴 값은 SQL 명령에 따라 변경된 데이터의 개수이다.
       int result = stmt.executeUpdate("update lms_lesson set" //
           + " titl='" + lesson.getTitle() //
           + "', conts='" + lesson.getDescription() //
           + "', sdt='" + lesson.getStartDate() //
           + "', edt='" + lesson.getEndDate() //
           + "', tot_hr=" + lesson.getTotalHours() //
-          + ", day_hr=" + lesson.getDayHours() //
+          + ", day_hr=" + lesson.getDayHours()
           + " where lesson_id=" + lesson.getNo());
 
       return result;
@@ -113,6 +121,10 @@ public class LessonDaoImpl implements LessonDao {
         "jdbc:mariadb://localhost:3306/studydb", "study", "1111");
         Statement stmt = con.createStatement()) {
 
+      // DBMS에게 데이터를 삭제하라는 명령을 보낸다.
+      // SQL 문법:
+      // => delete from 테이블명 where 조건
+      // => executeUpdate()의 리턴 값은 SQL 명령에 따라 삭제된 데이터의 개수이다.
       int result = stmt.executeUpdate("delete from lms_lesson where lesson_id=" + no);
 
       return result;

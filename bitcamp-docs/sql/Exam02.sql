@@ -17,7 +17,7 @@ create table test1 (
 
 /* PK 컬럼 지정 */
 alter table test1
-  add constraint primary key (no);
+  add constraint test1_pk primary key (no);
 
 /* 자동 증가 컬럼 지정 */
 alter table test1
@@ -56,6 +56,7 @@ create table test2 (
   eng int,
   math int
 );
+
 insert into test2(name,tel)
   select name, tel from test1 where addr='seoul'; 
 ```
@@ -126,20 +127,3 @@ delete from test1 where no=2 or no=3;
 /* 조건을 지정하지 않으면 모든 데이터가 삭제된다. 주의!*/
 delete from test1;
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

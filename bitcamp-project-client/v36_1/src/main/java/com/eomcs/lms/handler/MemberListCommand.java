@@ -9,7 +9,6 @@ public class MemberListCommand implements Command {
 
   public MemberListCommand(MemberDao memberDao) {
     this.memberDao = memberDao;
-
   }
 
   @Override

@@ -18,9 +18,6 @@ public class BoardDaoImpl implements BoardDao {
     try (
         Connection con =
             DriverManager.getConnection("jdbc:mariadb://localhost:3306/studydb", "study", "1111");
-
-
-
         Statement stmt = con.createStatement()) {
 
       con.setAutoCommit(true);
@@ -134,6 +131,4 @@ public class BoardDaoImpl implements BoardDao {
       return result;
     }
   }
-
-
 }

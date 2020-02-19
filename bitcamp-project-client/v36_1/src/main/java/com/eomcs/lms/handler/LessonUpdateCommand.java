@@ -20,12 +20,11 @@ public class LessonUpdateCommand implements Command {
     try {
       int no = prompt.inputInt("번호? ");
 
-
       Lesson oldLesson = null;
       try {
         oldLesson = lessonDao.findByNo(no);
       } catch (Exception e) {
-        System.out.println("해당 번호의 게시글이 없습니디!");
+        System.out.println("해당 번호의 게시글이 없습니다!");
         return;
       }
 

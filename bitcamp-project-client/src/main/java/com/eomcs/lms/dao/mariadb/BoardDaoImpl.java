@@ -13,14 +13,12 @@ public class BoardDaoImpl implements BoardDao {
 
   public BoardDaoImpl(Connection con) {
     this.con = con;
-
   }
 
   @Override
   public int insert(Board board) throws Exception {
 
     try (Statement stmt = con.createStatement()) {
-
       con.setAutoCommit(true);
 
       // DBMS에게 데이터 입력하라는 명령을 보낸다.

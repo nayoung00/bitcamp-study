@@ -15,9 +15,10 @@ public class LessonDeleteCommand implements Command {
   }
 
   @Override
-  public void execute() {
-    try {
-      int no = prompt.inputInt("번호? ");
+  public void execute() 
+
+  int no = prompt.inputInt("번호? ");
+  
       lessonDao.delete(no);
       System.out.println("수업을 삭제했습니다.");
 

@@ -31,13 +31,13 @@ DROP TABLE IF EXISTS addr RESTRICT;
 DROP TABLE IF EXISTS lect_tcher RESTRICT;
 
 -- 수강생
-CREATE TABLE stnt (
+CREATE TABLE stnt (   
     mno    INTEGER     NOT NULL COMMENT '수강생번호', -- 수강생번호
     work   CHAR(1)     NOT NULL COMMENT '재직여부', -- 재직여부
     acc_no VARCHAR(20) NULL     COMMENT '통장번호', -- 통장번호
     bank   VARCHAR(50) NULL     COMMENT '은행명' -- 은행명
 )
-COMMENT '수강생';
+COMMENT '수강생'; 
 
 -- 수강생
 ALTER TABLE stnt
@@ -46,10 +46,10 @@ ALTER TABLE stnt
             mno -- 수강생번호
         );
 
--- 수강생 유니크 인덱스
+-- 수강생 유니크 인덱스(중복X)
 CREATE UNIQUE INDEX UIX_stnt
     ON stnt ( -- 수강생
-        acc_no ASC, -- 통장번호
+        acc_no ASC, -- 통장번호  
         bank ASC    -- 은행명
     );
 
@@ -106,7 +106,7 @@ CREATE INDEX IX_lect
     );
 
 ALTER TABLE lect
-    MODIFY COLUMN lno INTEGER NOT NULL AUTO_INCREMENT COMMENT '강의번호';
+    MODIFY COLUMN lno INTEGER NOT NULL AUTO_INCREMENT COMMENT '강의번호'; 
 
 -- 강의실
 CREATE TABLE room (
@@ -167,7 +167,7 @@ ALTER TABLE lect_appl
             lano -- 수강신청번호
         );
 
--- 수강신청 유니크 인덱스
+-- 수강신청 유니크 인덱스 /*같은 학생이 같은 강의 두번 입력 못함*/
 CREATE UNIQUE INDEX UIX_lect_appl
     ON lect_appl ( -- 수강신청
         lno ASC, -- 강의번호

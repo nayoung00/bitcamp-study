@@ -11,9 +11,3 @@ select distinct bank from stnt
 union all
 select distinct bank from tcher;
 
-
-
-
-
-
-

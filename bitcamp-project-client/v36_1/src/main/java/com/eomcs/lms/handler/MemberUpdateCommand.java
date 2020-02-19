@@ -13,7 +13,6 @@ public class MemberUpdateCommand implements Command {
   public MemberUpdateCommand(MemberDao memberDao, Prompt prompt) {
     this.memberDao = memberDao;
     this.prompt = prompt;
-
   }
 
   @Override
@@ -21,7 +20,6 @@ public class MemberUpdateCommand implements Command {
     try {
 
       int no = prompt.inputInt("번호? ");
-
 
       Member oldMember = null;
       try {

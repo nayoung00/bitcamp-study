@@ -7,6 +7,7 @@ DB 객체(테이블, 뷰, 함수, 트리거 등)를 생성, 변경, 삭제하는
 - 트리거(trigger)
   - 특정 조건에서 자동으로 호출되는 함수
   - 특정 조건? SQL 실행 전/후 등
+  - OOP 디자인 패턴에서 옵저버에 해당한다.  
 - 함수(function)
 - 프로시저(procedure)
 - 인덱스(index)
@@ -276,7 +277,7 @@ DBMS 중에는 고정 크기인 컬럼의 값을 비교할 때 빈자리까지 �
   kor int,
   eng int,
   math int
-  ); /* 실행 오류 */
+  ); /* 실행 오류  Multiple primary key defined  */
 
 - 두 개 이상의 컬럼을 묶어서 PK로 선언하고 싶다면 
   각 컬럼에 대해서 개별적으로 PK를 지정해서는 안된다. 
@@ -287,7 +288,7 @@ DBMS 중에는 고정 크기인 컬럼의 값을 비교할 때 빈자리까지 �
   kor int,
   eng int,
   math int,
-  constraint test1_pk primary key(name, age)
+  constraint test1_pk primary key(name, age) /*제약조건 조건이름 생략 가능. 보통 테이블명_pk. (컬럼1, 컬럼2)*/
   );
 
 - 입력 테스트:
@@ -297,6 +298,7 @@ DBMS 중에는 고정 크기인 컬럼의 값을 비교할 때 빈자리까지 �
 > insert into test1(name, age, kor, eng, math) values('ab', 10, 88, 88, 88);
 
 /* 이름과 나이가 같으면 중복되기 때문에 입력 거절이다. */
+/* Duplicate entry 'aa-10' for key 'PRIMARY'*/
 > insert into test1(name, age, kor, eng, math) values('aa', 10, 88, 88, 88);
 
 - 여러 개의 컬럼을 묶어서 PK로 사용하면 데이터를 다루기가 불편하다.
@@ -335,6 +337,18 @@ DBMS 중에는 고정 크기인 컬럼의 값을 비교할 때 빈자리까지 �
   eng int,
   math int,
   constraint test1_uk unique (name, age)
+  ); /*테이블명_uk 안붙이면 임의의값 설정됨.*/
+  
+  /* 다음과 같이 제약 조건을 모든 컬럼 선언 뒤에 놓을 수 있다. */
+> create table test1(
+  no int,
+  name varchar(20),
+  age int,
+  kor int,
+  eng int,
+  math int,
+  constraint test1_pk primary key(no),
+  constraint test1_uk unique (name, age)
   );
 
 - 입력 테스트:
@@ -348,12 +362,21 @@ DBMS 중에는 고정 크기인 컬럼의 값을 비교할 때 빈자리까지 �
 
 /* 비록 번호가 중복되지 않더라도 name, age가 unique 컬럼으로 지정되었기 
    때문에 중복저장될 수 없다.*/
+/* Duplicate entry 'c-20' for key 'test1_uk'*/
 > insert into test1(no,name,age,kor,eng,math) values(5,'c',20,81,81,81);
+
 
 
 ##### index
 - 검색 조건으로 사용되는 컬럼은 정렬되어야만 데이터를 빨리 찾을 수 있다.
 - 특정 컬럼의 값을 A-Z 또는 Z-A로 정렬시키는 문법이 인덱스이다.
+- DBMS는 해당 컬럼의 값으로 정렬한 데이터 정볼르 별도로 생성한다. 
+- 인덱스로 지정된 컬럼의 값이 추가/변경/삭제 될 때 인덱스 정보도 갱신한다.
+- 보통 책 맨 뒤에 붙어있는 인덱스 정보와 같다.  
+- 따라서 입력/변경/삭제가 자주 발생하는 테이블에 대해 인덱스 컬럼을 지정하면,
+  입력/변경/삭제 시 인덱스 정보를 갱신해야 하기 때문에 입력/변경/삭제 속도가 느리다. 
+- 대신 조회 속도는 빠르다. 
+
 ```
 create table test1(
   no int primary key,
@@ -381,7 +404,7 @@ insert into test1(no,name,age,kor,eng,math) values(5,'eee',20,80,80,80);
 #### 인덱스 컬럼의 활용
 검색할 때 사용한다.
 ```
-select * from test1 where name = 'bbb';
+select * from test1 where name = 'bbb'; /*where에서 조건 지정*/
 ```
 
 ### 테이블 변경 
@@ -461,25 +484,50 @@ create table test1(
 ``` 
 
 - 특정 컬럼의 값을 자동으로 증가하게 선언한다.
-- 단 반드시 primary key여야 한다.
+- 단 반드시 key(primary key 나 unique)여야 한다.
 ```
 alter table test1
   modify column no int not null auto_increment; /* 아직 no가 pk가 아니기 때문에 오류*/
+/* Incorrect table definition; there can be only one auto column and it must be defined as a key */
   
 alter table test1
   add constraint primary key (no); /* 일단 no를 pk로 지정한다.*/
 
+alter table test1
+  add constraint unique key (no); /* 일단 no를 unique로 지정한다.*/  
+  
 alter table test1
   modify column no int not null auto_increment; /* 그런 후 auto_increment를 지정한다.*/
 ```
 
 - 입력 테스트
 ```
+
+/*auto-increment 컬럼의 값을 직접 지정할 수 있다.*/
+insert into test1(no,name) values(1,'xxx');
 insert into test1(name) values('aaa');
 insert into test1(name) values('bbb');
 insert into test1(name) values('ccc');
 insert into test1(name) values('ddd');
 insert into test1(name) values('eee');
+
+/*auto-increment 컬럼의 값을 생략하면 마지막 값을 증가시켜서 입력한다.*/
+insert into test1(no,name) values(100,'yyy');
+
+
+/*값을 삭제하더라도 auto-increment는 계속 앞으로 증가한다.*/
+delete from test1 where no=103;
+
+insert into test1(name) values('eee');
+
+insert into test1(name) values('1234567890123456789123456879');
+
+/* 다른 DBMS의 경우 입력 오류가 발생하더라도 번호는 자동 증가하기 때문에
+ * 다음 값을 입력할 때는 증가된 값이 들어간다. 
+ * 그러나 MySQL 또는 MariaDB는 증가되지 않는다.
+ */
+insert into test1(name) values('ppp');
+
 ```
 
 ## 뷰(view)
