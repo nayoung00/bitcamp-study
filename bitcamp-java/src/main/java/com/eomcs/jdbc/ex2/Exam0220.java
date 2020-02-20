@@ -66,9 +66,10 @@ public class Exam0220 {
       // - PreparedStatement : SQL 문장과 값이 분리되어 다뤄지기 때문에 해킹할 수 없다.
       //
       // 3) 바이너리 데이터 다루기
-      // - Statement : 문자열로 SQL 문장을 만들기 때문에 바이트 배열의 값을 다룰 수 없다.
-      // - PreparedStatement : setXxx() 메서드를 호출하여 값을 설정하기 때문에
-      // 바이트 배열의 값을 다룰 수 있다.
+      // - Statement :
+      // 문자열로 SQL 문장을 만들기 때문에 바이너리 타입의 컬럼 값을 설정할 수 없다.
+      // - PreparedStatement :
+      // setXxx() 메서드를 호출하여 값을 설정하기 때문에 바이너리 타입의 컬럼값을 설정할 수 있다.
       //
       // 4) 실행 속도
       // - Statement : executeUpdate()를 실행할 때 SQL 문을 파라미터로 전달한다.

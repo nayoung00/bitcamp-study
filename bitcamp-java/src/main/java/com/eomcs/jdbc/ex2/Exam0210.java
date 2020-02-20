@@ -41,13 +41,14 @@ public class Exam0210 {
               "', contents = '" + contents + //
               "' where board_id = " + no);
 
+
+
       // 위에서 사용자가 입력한 값을 가지고 SQL 문장을 만들면 다음과 같다.
       //
       // update x_board set title = 'okok',
       // contents = 'test', view_count = 300, created_date = '2019-3-3'
       // where board_id = 1
       //
-
       if (count == 0) {
         System.out.println("해당 번호의 게시물이 존재하지 않습니다.");
       } else {

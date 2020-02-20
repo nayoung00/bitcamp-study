@@ -12,7 +12,6 @@ public class Exam0350 {
         java.sql.Statement stmt = con.createStatement();
 
     ) {
-
       // executeUpdate()
       // => DBMS 서버에 update 문을 보낸다.
       // => 리턴 값: 변경된 레코드의 개수이다.
