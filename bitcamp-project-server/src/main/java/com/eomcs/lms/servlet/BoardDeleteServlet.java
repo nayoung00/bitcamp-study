@@ -17,8 +17,6 @@ public class BoardDeleteServlet implements Servlet {
   @Override
   public void service(ObjectInputStream in, ObjectOutputStream out) throws Exception {
     int no = in.readInt();
-
-
     if (boardDao.delete(no) > 0) {
       out.writeUTF("OK");
 

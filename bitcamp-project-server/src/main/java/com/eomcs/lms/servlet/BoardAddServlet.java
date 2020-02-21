@@ -1,15 +1,12 @@
 package com.eomcs.lms.servlet;
 
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.PrintStream;
+import java.util.Scanner;
 import com.eomcs.lms.dao.BoardDao;
 import com.eomcs.lms.domain.Board;
 
 public class BoardAddServlet implements Servlet {
 
-
-  // 인터페이스를 지정함으로써
-  // 향후 다른 구현체로 교체하기 쉽도록 한다.
   BoardDao boardDao;
 
   public BoardAddServlet(BoardDao boardDao) {
@@ -17,14 +14,17 @@ public class BoardAddServlet implements Servlet {
   }
 
   @Override
-  public void service(ObjectInputStream in, ObjectOutputStream out) throws Exception {
-    Board board = (Board) in.readObject();
+  public void service(Scanner in, PrintStream out) throws Exception {
+    Board board = new Board();
+
+    out.println("제목? \n!{}!");
+    out.flush();
+    board.setTitle(in.nextLine());
 
     if (boardDao.insert(board) > 0) {
-      out.writeUTF("OK");
+      out.println("새 게시글을 등록 했습니다.");
     } else {
-      out.writeUTF("FAIL");
-      out.writeUTF("같은 번호의 게시물이 있습니다.");
+      out.println("게시글 등록에 실패 했습니다.");
     }
   }
 }
