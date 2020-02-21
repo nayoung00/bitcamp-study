@@ -13,7 +13,6 @@ public class Exam0310 {
     String contents = null;
 
     try (Scanner keyScan = new Scanner(System.in)) {
-
       // 사용자로부터 제목, 내용을 입력 받는다.
       System.out.print("제목? ");
       title = keyScan.nextLine();
@@ -32,12 +31,10 @@ public class Exam0310 {
 
     try (Connection con = DriverManager.getConnection( //
         "jdbc:mysql://localhost:3306/studydb?user=study&password=1111");
-
         // 값이 들어갈 자리에 in-parameter(?)를 지정한다.
         // => 데이터 타입에 상관없이 ?를 넣는다.
         PreparedStatement stmt =
             con.prepareStatement("insert into x_board(title,contents) values(?,?)");) {
-
       // in-parameter에 값을 설정한다.
       // => 설정하는 순서는 상관없다. 하지만 유지보수를 위해 순서대로 나열하라!
       stmt.setString(1, title);

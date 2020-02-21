@@ -42,6 +42,15 @@ public class Exam0520 {
             "insert into x_board(title,contents) values(?,?)", //
             Statement.RETURN_GENERATED_KEYS);) {
 
+      // 트랜잭션(transaction)?
+      // => 여러 개의 데이터 변경 작업을 한 단위로 묶은 것.
+      // => 한 단위로 묶인 모든 작업이 성공 했을 때 그 작업 결과를 저장한다.
+      //
+      // 여러 작업을 트랜잭션으로 묶는 방법?
+      // => autocommit을 수동으로 전환한다.
+      // => 모든 작업이 성공했을 때 서버에 저장한다. - commit
+      // => 한 작업이라도 실패하면 기존에 작업한 결과를 취소한다. - rollback
+
       // 1) 트랜잭션 시작 - 커넥션 객체의 오토커밋을 false로 지정한다.
       con.setAutoCommit(false);
       // 이후부터 이 커넥션으로 실행하는 모든 SQL은
@@ -69,11 +78,13 @@ public class Exam0520 {
           "insert into x_board_file(file_path,board_id) values(?,?)")) {
         stmt2.setString(1, filename);
         stmt2.setInt(2, no);
-        stmt2.execute();
+        stmt2.execute(); // = stmt2.executeUpdate();
         System.out.println("첨부파일 등록 완료!");
 
-        // 트랜잭션 작업 승인 - 서버의 요청한 작업을 처리할 것을 명령한다.
+        // 트랜잭션 작업 승인
+        // => 지금까지 수행한 작업을 저장하라고 서버에 요청한다.
         // => commit()을 호출하지 않으면 서버에 요청한 데이터 변경 작업은 자동 취소된다.
+        //
         con.commit();
 
       } catch (Exception e) {
@@ -83,10 +94,8 @@ public class Exam0520 {
         // => 커넥션을 공유하는 상황에서는 이렇게 명시적으로 작업 취소를 명령하는 것이 좋다.
         // => 왜냐하면 같은 커넥션으로 다른 작업을 처리하는 경우 영향을 받을 수 있기 때문이다.
         //
-        con.rollback();
+        con.rollback(); // connection을 connection pool에 담아 공유할때 문제 생기는걸 방지.
       }
     }
   }
 }
-
-
