@@ -82,6 +82,7 @@ public class ServerApp {
         System.out.println("--------------------------------------");
       }
     }
+    
     notifyApplicationInitialized();
 
     // DataLoaderListener가 준비한 DAO 객체를 꺼내 변수에 저장한다.
@@ -109,7 +110,6 @@ public class ServerApp {
     servletMap.put("/member/delete", new MemberDeleteServlet(memberDao));
 
     try (ServerSocket serverSocket = new ServerSocket(9999)) {
-
       System.out.println("클라이언트 연결 대기중...");
 
       while (true) {
