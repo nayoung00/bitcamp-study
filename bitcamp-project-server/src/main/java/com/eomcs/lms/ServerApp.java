@@ -56,7 +56,6 @@ public class ServerApp {
   // 서버 멈춤 여부 설정 변수
   boolean serverStop = false;
 
-
   public void addApplicationContextListener(ApplicationContextListener listener) {
     listeners.add(listener);
   }
@@ -76,8 +75,8 @@ public class ServerApp {
       listener.contextDestroyed(context);
     }
   }
-  // 옵저버 관련코드 끝!
 
+  // 옵저버 관련코드 끝!
   public void service() {
 
     @SuppressWarnings("unused")

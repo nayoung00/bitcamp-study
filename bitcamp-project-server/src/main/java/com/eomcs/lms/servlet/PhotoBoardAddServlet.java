@@ -4,6 +4,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import com.eomcs.lms.DataLoaderListener;
 import com.eomcs.lms.dao.LessonDao;
 import com.eomcs.lms.dao.PhotoBoardDao;
 import com.eomcs.lms.dao.PhotoFileDao;
@@ -40,17 +41,31 @@ public class PhotoBoardAddServlet implements Servlet {
 
     photoBoard.setLesson(lesson);
 
-    if (photoBoardDao.insert(photoBoard) > 0) {
+    // 트랜잭션을 시작하기 위해 auto-commit을 수동으로 바꾼다.
+    DataLoaderListener.con.setAutoCommit(false);
+    // 이 이후부터 하는 데이터 변경 작업은
+    // 모두 임시 테이블에 보관된다.
+    // 오직 commit 명령을 DBMS에 보낼 때만 진짜 테이블에 적용된다.
 
+    try {
+      if (photoBoardDao.insert(photoBoard) == 0) {
+        throw new Exception("사진 게시글 등록에 실패 했습니다.");
+      }
       List<PhotoFile> photoFiles = inputPhotoFiles(in, out);
       // ArrayList에 들어 있는 PhotoFile 데이터를 lms_photo_file 테이블에 저장한다.
       for (PhotoFile photoFile : photoFiles) {
         photoFile.setBoardNo(photoBoard.getNo());
         photoFileDao.insert(photoFile);
       }
+      DataLoaderListener.con.commit();
       out.println("새 사진 게시글을 등록 했습니다.");
-    } else {
-      out.println("사진 게시글 등록에 실패 했습니다.");
+
+    } catch (Exception e) {
+      DataLoaderListener.con.rollback();
+      out.println(e.getMessage());
+
+    } finally {
+      DataLoaderListener.con.setAutoCommit(true);
     }
   }
 
@@ -65,7 +80,6 @@ public class PhotoBoardAddServlet implements Servlet {
     while (true) {
       String filepath = Prompt.getString(in, out, "사진 파일? ");
 
-
       if (filepath.length() == 0) {
         if (photoFiles.size() > 0) {
           break;
@@ -74,7 +88,6 @@ public class PhotoBoardAddServlet implements Servlet {
           continue;
         }
       }
-
       // 1) 기본 생성자를 사용할 때,
       // PhotoFile photoFile = new PhotoFile();
       // photoFile.setFilepath(filepath);

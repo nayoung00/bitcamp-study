@@ -4,6 +4,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import com.eomcs.lms.DataLoaderListener;
 import com.eomcs.lms.dao.PhotoBoardDao;
 import com.eomcs.lms.dao.PhotoFileDao;
 import com.eomcs.lms.domain.PhotoBoard;
@@ -30,14 +31,18 @@ public class PhotoBoardUpdateServlet implements Servlet {
       return;
     }
 
-    out.printf("제목(%s)? \n!{}!\n", old.getTitle());
-    out.flush();
-
     PhotoBoard photoBoard = new PhotoBoard();
-    photoBoard.setTitle(in.nextLine());
+    photoBoard.setTitle(Prompt.getString(in, out,
+        String.format("제목(%s)? \n!{}!\n", old.getTitle(), old.getTitle())));
     photoBoard.setNo(no);
 
-    if (photoBoardDao.update(photoBoard) > 0) { // 변경했다면,
+    DataLoaderListener.con.setAutoCommit(false);
+
+    try {
+
+      if (photoBoardDao.update(photoBoard) == 0) {
+        throw new Exception("사진 게시글 변경에 실패했습니다.");
+      }
 
       printPhotoFiles(out, no);
 
@@ -59,15 +64,17 @@ public class PhotoBoardUpdateServlet implements Servlet {
           photoFileDao.insert(photoFile);
         }
       }
+      DataLoaderListener.con.commit();
       out.println("사진 게시글을 변경했습니다.");
-    } else {
-      out.println("사진 게시글 변경에 실패했습니다.");
+    } catch (Exception e) {
+      DataLoaderListener.con.rollback();
+      out.println(e.getMessage());
+    } finally {
+      DataLoaderListener.con.setAutoCommit(true);
     }
   }
 
   private void printPhotoFiles(PrintStream out, int boardNo) throws Exception {
-
-
     out.println("사진 파일: ");
     List<PhotoFile> oldPhotoFiles = photoFileDao.findAll(boardNo);
     for (PhotoFile photoFile : oldPhotoFiles) {
@@ -85,7 +92,6 @@ public class PhotoBoardUpdateServlet implements Servlet {
     while (true) {
       String filepath = Prompt.getString(in, out, "사진 파일? ");
 
-
       if (filepath.length() == 0) {
         if (photoFiles.size() > 0) {
           break;
@@ -94,17 +100,6 @@ public class PhotoBoardUpdateServlet implements Servlet {
           continue;
         }
       }
-
-      // 1) 기본 생성자를 사용할 때,
-      // PhotoFile photoFile = new PhotoFile();
-      // photoFile.setFilepath(filepath);
-      // photoFile.setBoardNo(photoBoard.getNo());
-      // photoFiles.add(photoFile);
-
-      // 2) 초기 값을 생성하는 생성자를 사용할 때,
-      // photoFiles.add(new PhotoFile(filepath, photoBoard.getNo()));
-
-      // 3) 셋터 메서드를 활용하여 체인 방식으로 인스턴스 필드의 값을 설정.
       photoFiles.add(new PhotoFile().setFilepath(filepath));
     }
     return photoFiles;

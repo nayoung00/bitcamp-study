@@ -18,7 +18,6 @@ public class PhotoFileDaoImpl implements PhotoFileDao {
   @Override
   public int insert(PhotoFile photoFile) throws Exception {
     try (Statement stmt = con.createStatement()) {
-      con.setAutoCommit(true);
 
       int result = stmt.executeUpdate("insert into lms_photo_file(photo_id, file_path) values("
           + photoFile.getBoardNo() + ",'" + photoFile.getFilepath()//

@@ -1,3 +1,4 @@
+
 package com.eomcs.lms.dao.json;
 
 import java.util.List;
@@ -11,6 +12,7 @@ public class MemberJsonFileDao extends AbstractJsonFileDao<Member> implements Me
     super(filename);
   }
 
+  @Override
   public int insert(Member Member) throws Exception {
 
 
@@ -23,10 +25,12 @@ public class MemberJsonFileDao extends AbstractJsonFileDao<Member> implements Me
     return 1;
   }
 
+  @Override
   public List<Member> findAll() throws Exception {
     return list;
   }
 
+  @Override
   public Member findByNo(int no) throws Exception {
 
     int index = indexOf(no);
@@ -36,6 +40,7 @@ public class MemberJsonFileDao extends AbstractJsonFileDao<Member> implements Me
     return list.get(index);
   }
 
+  @Override
   public int update(Member Member) throws Exception {
     int index = indexOf(Member.getNo());
     if (index == -1) {
@@ -46,6 +51,7 @@ public class MemberJsonFileDao extends AbstractJsonFileDao<Member> implements Me
     return 1;
   }
 
+  @Override
   public int delete(int no) throws Exception {
     int index = indexOf(no);
     if (index == -1) {

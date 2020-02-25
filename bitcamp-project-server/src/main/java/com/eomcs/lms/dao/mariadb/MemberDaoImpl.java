@@ -21,7 +21,6 @@ public class MemberDaoImpl implements MemberDao {
 
     try (Statement stmt = con.createStatement()) {
 
-      con.setAutoCommit(true);
 
       int result = stmt.executeUpdate("insert into lms_member(name ,email, pwd, tel, photo)"
           + " values('" + member.getName() + "','" + member.getEmail() + "','"

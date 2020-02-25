@@ -20,7 +20,6 @@ public class PhotoBoardDaoImpl implements PhotoBoardDao {
   public int insert(PhotoBoard photoBoard) throws Exception {
 
     try (Statement stmt = con.createStatement()) {
-      con.setAutoCommit(true);
 
       int result = stmt.executeUpdate(//
           "insert into lms_photo(titl, lesson_id) values('" + photoBoard.getTitle() + "',"
