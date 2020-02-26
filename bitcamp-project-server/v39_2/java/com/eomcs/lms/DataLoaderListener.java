@@ -23,7 +23,6 @@ public class DataLoaderListener implements ApplicationContextListener {
 
       // Connection Factory 준비
       ConnectionFactory conFactory = new ConnectionFactory(jdbcUrl, username, password);
-      context.put("connectionFactory", conFactory);
 
       context.put("boardDao", new BoardDaoImpl(conFactory));
       context.put("lessonDao", new LessonDaoImpl(conFactory));

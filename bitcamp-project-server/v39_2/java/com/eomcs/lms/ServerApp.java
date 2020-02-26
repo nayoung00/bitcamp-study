@@ -40,7 +40,6 @@ import com.eomcs.lms.servlet.PhotoBoardDetailServlet;
 import com.eomcs.lms.servlet.PhotoBoardListServlet;
 import com.eomcs.lms.servlet.PhotoBoardUpdateServlet;
 import com.eomcs.lms.servlet.Servlet;
-import com.eomcs.util.ConnectionFactory;
 
 public class ServerApp {
 
@@ -96,9 +95,6 @@ public class ServerApp {
     }
     notifyApplicationInitialized();
 
-    // ConnectionFactory 꺼내내다.
-    ConnectionFactory conFactory = (ConnectionFactory) context.get("connectionFactory");
-
     // DataLoaderListener가 준비한 DAO 객체를 꺼내 변수에 저장한다.
     BoardDao boardDao = (BoardDao) context.get("boardDao");
     LessonDao lessonDao = (LessonDao) context.get("lessonDao");
@@ -144,7 +140,6 @@ public class ServerApp {
 
         executorService.submit(() -> {
           processRequest(socket);
-          conFactory.removeConnection();
           System.out.println("--------------------------------------");
         });
 
