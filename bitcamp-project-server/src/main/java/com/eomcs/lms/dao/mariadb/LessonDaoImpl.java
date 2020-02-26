@@ -7,19 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 import com.eomcs.lms.dao.LessonDao;
 import com.eomcs.lms.domain.Lesson;
+import com.eomcs.util.ConnectionFactory;
 
 public class LessonDaoImpl implements LessonDao {
 
-  Connection con;
+  ConnectionFactory conFactory;
 
-  public LessonDaoImpl(Connection con) {
-    this.con = con;
+  public LessonDaoImpl(ConnectionFactory conFactory) {
+    this.conFactory = conFactory;
   }
 
   @Override
   public int insert(Lesson lesson) throws Exception {
 
-    try (Statement stmt = con.createStatement()) {
+    try (Connection con = conFactory.getConnection(); Statement stmt = con.createStatement()) {
 
       int result = stmt.executeUpdate(
           "insert into lms_lesson(sdt, edt, tot_hr, day_hr, titl, conts)" + " values('"
@@ -34,7 +35,8 @@ public class LessonDaoImpl implements LessonDao {
   public List<Lesson> findAll() throws Exception {
     Class.forName("org.mariadb.jdbc.Driver");
 
-    try (Statement stmt = con.createStatement();
+    try (Connection con = conFactory.getConnection();
+        Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery( //
             "select lesson_id, titl, sdt, edt, tot_hr from lms_lesson")) {
 
@@ -60,7 +62,8 @@ public class LessonDaoImpl implements LessonDao {
   public Lesson findByNo(int no) throws Exception {
     Class.forName("org.mariadb.jdbc.Driver");
 
-    try (Statement stmt = con.createStatement();
+    try (Connection con = conFactory.getConnection();
+        Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery( //
             "select lesson_id, titl, conts, sdt, edt, tot_hr, day_hr" + " from lms_lesson"
                 + " where lesson_id=" + no)) {
@@ -85,7 +88,7 @@ public class LessonDaoImpl implements LessonDao {
   @Override
   public int update(Lesson lesson) throws Exception {
 
-    try (Statement stmt = con.createStatement()) {
+    try (Connection con = conFactory.getConnection(); Statement stmt = con.createStatement()) {
 
       int result = stmt.executeUpdate("update lms_lesson set" //
           + " titl='" + lesson.getTitle() //
@@ -103,7 +106,7 @@ public class LessonDaoImpl implements LessonDao {
   @Override
   public int delete(int no) throws Exception {
 
-    try (Statement stmt = con.createStatement()) {
+    try (Connection con = conFactory.getConnection(); Statement stmt = con.createStatement()) {
 
       int result = stmt.executeUpdate("delete from lms_lesson where lesson_id=" + no);
 

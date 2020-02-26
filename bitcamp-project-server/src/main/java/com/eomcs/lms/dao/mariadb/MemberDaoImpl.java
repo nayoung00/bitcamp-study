@@ -7,19 +7,19 @@ import java.util.ArrayList;
 import java.util.List;
 import com.eomcs.lms.dao.MemberDao;
 import com.eomcs.lms.domain.Member;
+import com.eomcs.util.ConnectionFactory;
 
 public class MemberDaoImpl implements MemberDao {
-  Connection con;
+  ConnectionFactory conFactory;
 
-  public MemberDaoImpl(Connection con) {
-    this.con = con;
-
+  public MemberDaoImpl(ConnectionFactory conFactory) {
+    this.conFactory = conFactory;
   }
 
   @Override
   public int insert(Member member) throws Exception {
 
-    try (Statement stmt = con.createStatement()) {
+    try (Connection con = conFactory.getConnection(); Statement stmt = con.createStatement()) {
 
 
       int result = stmt.executeUpdate("insert into lms_member(name ,email, pwd, tel, photo)"
@@ -32,7 +32,7 @@ public class MemberDaoImpl implements MemberDao {
 
   @Override
   public List<Member> findAll() throws Exception {
-    try (
+    try (Connection con = conFactory.getConnection();
 
         Statement stmt = con.createStatement();
 
@@ -62,7 +62,7 @@ public class MemberDaoImpl implements MemberDao {
   @Override
   public Member findByNo(int no) throws Exception {
 
-    try (
+    try (Connection con = conFactory.getConnection();
 
         Statement stmt = con.createStatement();
 
@@ -91,7 +91,7 @@ public class MemberDaoImpl implements MemberDao {
 
   @Override
   public int update(Member member) throws Exception {
-    try (
+    try (Connection con = conFactory.getConnection();
 
         Statement stmt = con.createStatement()) {
 
@@ -106,7 +106,7 @@ public class MemberDaoImpl implements MemberDao {
 
   @Override
   public int delete(int no) throws Exception {
-    try (
+    try (Connection con = conFactory.getConnection();
 
         Statement stmt = con.createStatement()) {
 
@@ -118,7 +118,8 @@ public class MemberDaoImpl implements MemberDao {
 
   @Override
   public List<Member> findByKeyword(String keyword) throws Exception {
-    try (Statement stmt = con.createStatement();
+    try (Connection con = conFactory.getConnection();
+        Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery( //
             "select member_id, name, email, tel, cdt" //
                 + " from lms_member" //
