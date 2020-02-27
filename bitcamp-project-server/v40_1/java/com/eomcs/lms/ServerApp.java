@@ -141,7 +141,6 @@ public class ServerApp {
       while (true) {
         Socket socket = serverSocket.accept();
         System.out.println("클라이언트와 연결되었음!");
-
         executorService.submit(() -> {
           processRequest(socket);
           conFactory.removeConnection();

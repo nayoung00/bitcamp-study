@@ -60,4 +60,9 @@ public class PhotoBoard implements Serializable {
     this.viewCount = viewCount;
   }
 
+  public static long getSerialversionuid() {
+    return serialVersionUID;
+  }
+
+
 }

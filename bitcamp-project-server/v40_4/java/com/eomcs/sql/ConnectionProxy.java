@@ -343,4 +343,7 @@ public class ConnectionProxy implements Connection {
   public void setShardingKey(ShardingKey shardingKey) throws SQLException {
     origin.setShardingKey(shardingKey);
   }
+
+
+
 }
