@@ -26,31 +26,30 @@ public class PhotoBoardDaoImpl implements PhotoBoardDao {
   @Override
   public List<PhotoBoard> findAllByLessonNo(int lessonNo) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      return sqlSession.selectOne("PhotoBoardMapper.detailPhotoBoard", lessonNo);
-
+      return sqlSession.selectList(//
+          "PhotoBoardMapper.selectPhotoBoard", lessonNo);
     }
   }
 
   @Override
   public PhotoBoard findByNo(int no) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      return sqlSession.selectOne("PhotoBoardMapper.detailPhotoBoard", no);
+      return sqlSession.selectOne("PhotoBoardMapper.selectDetail", no);
     }
   }
 
   @Override
   public int update(PhotoBoard photoBoard) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      int count = sqlSession.update("PhotoBoardMapper.updatePhotoBoard", photoBoard);
+      int count = sqlSession.update(//
+          "PhotoBoardMapper.updatePhotoBoard", photoBoard);
       sqlSession.commit();
       return count;
     }
   }
 
-
   @Override
   public int delete(int no) throws Exception {
-
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       int count = sqlSession.delete("PhotoBoardMapper.deletePhotoBoard", no);
       sqlSession.commit();
@@ -58,4 +57,3 @@ public class PhotoBoardDaoImpl implements PhotoBoardDao {
     }
   }
 }
-

@@ -119,6 +119,4 @@ public class Board implements Serializable {
   public void setWriter(String writer) {
     this.writer = writer;
   }
-
-
 }

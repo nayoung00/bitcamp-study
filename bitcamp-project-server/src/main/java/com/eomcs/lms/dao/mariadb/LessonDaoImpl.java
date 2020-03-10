@@ -10,13 +10,13 @@ public class LessonDaoImpl implements LessonDao {
 
   SqlSessionFactory sqlSessionFactory;
 
-  public LessonDaoImpl(SqlSessionFactory sqlSessionFactory) {
+  public LessonDaoImpl( //
+      SqlSessionFactory sqlSessionFactory) {
     this.sqlSessionFactory = sqlSessionFactory;
   }
 
   @Override
   public int insert(Lesson lesson) throws Exception {
-
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       int count = sqlSession.insert("LessonMapper.insertLesson", lesson);
       sqlSession.commit();
@@ -26,8 +26,6 @@ public class LessonDaoImpl implements LessonDao {
 
   @Override
   public List<Lesson> findAll() throws Exception {
-    Class.forName("org.mariadb.jdbc.Driver");
-
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       return sqlSession.selectList("LessonMapper.selectLesson");
     }
@@ -35,18 +33,15 @@ public class LessonDaoImpl implements LessonDao {
 
   @Override
   public Lesson findByNo(int no) throws Exception {
-    Class.forName("org.mariadb.jdbc.Driver");
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      return sqlSession.selectOne("LessonMapper.detailLesson", no);
+      return sqlSession.selectOne("LessonMapper.selectDetail", no);
     }
   }
 
   @Override
   public int update(Lesson lesson) throws Exception {
-
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-
-      int count = sqlSession.selectOne("LessonMapper.updateLesson", lesson);
+      int count = sqlSession.update("LessonMapper.updateLesson", lesson);
       sqlSession.commit();
       return count;
     }
@@ -54,9 +49,8 @@ public class LessonDaoImpl implements LessonDao {
 
   @Override
   public int delete(int no) throws Exception {
-
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      int count = sqlSession.selectOne("LessonMapper.deleteLesson", no);
+      int count = sqlSession.delete("LessonMapper.deleteLesson", no);
       sqlSession.commit();
       return count;
     }
