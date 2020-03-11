@@ -22,6 +22,7 @@
     </collection>
   </resultMap>
     
+    
   <insert id="insertPhotoBoard" parameterType="PhotoBoard"
     useGeneratedKeys="true" keyColumn="photo_id" keyProperty="no">
     insert into lms_photo(titl,lesson_id) 

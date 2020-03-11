@@ -27,15 +27,11 @@ public class MemberUpdateServlet implements Servlet {
     Member member = new Member();
     member.setNo(no);
 
-    member.setName(
-        Prompt.getString(in, out, String.format("이름(%s)? \n? ", old.getName(), old.getName())));
-    member.setEmail(
-        Prompt.getString(in, out, String.format("이메일(%s)? \n", old.getEmail()), old.getEmail()));
-    member.setPassword(Prompt.getString(in, out, "암호? "));
-    member.setPhoto(
-        Prompt.getString(in, out, String.format("사진(%s)? \n", old.getPhoto()), old.getPhoto()));
-    member
-        .setTel(Prompt.getString(in, out, String.format("전화(%s)? \n", old.getTel()), old.getTel()));
+    member.setName(Prompt.getString(in, out, String.format("이름(%s)?", old.getName())));
+    member.setEmail(Prompt.getString(in, out, String.format("이메일(%s)?", old.getEmail())));
+    member.setPassword(Prompt.getString(in, out, "암호?"));
+    member.setPhoto(Prompt.getString(in, out, String.format("사진(%s)?", old.getPhoto())));
+    member.setTel(Prompt.getString(in, out, String.format("전화(%s)?", old.getTel())));
 
     out.flush();
     if (memberDao.update(member) > 0) { // 변경했다면,
@@ -45,4 +41,3 @@ public class MemberUpdateServlet implements Servlet {
     }
   }
 }
-

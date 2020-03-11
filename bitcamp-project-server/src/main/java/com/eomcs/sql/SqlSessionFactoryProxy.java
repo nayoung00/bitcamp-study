@@ -14,7 +14,6 @@ public class SqlSessionFactoryProxy implements SqlSessionFactory {
   // SqlSession을 스레드에 보관할 저장소를 준비한다.
   ThreadLocal<SqlSession> sqlSessionLocal = new ThreadLocal<>();
 
-
   public SqlSessionFactoryProxy(SqlSessionFactory originalFactory) {
     this.originalFactory = originalFactory;
   }

@@ -18,7 +18,6 @@ public class BoardDaoImpl implements BoardDao {
 
   @Override
   public int insert(Board board) throws Exception {
-
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
       int count = sqlSession.insert("BoardMapper.insertBoard", board);
       return count;
@@ -36,7 +35,7 @@ public class BoardDaoImpl implements BoardDao {
   @Override
   public Board findByNo(int no) throws Exception {
     try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-      return sqlSession.selectOne("BoardMapper.detailBoard", no);
+      return sqlSession.selectOne("BoardMapper.selectDetail", no);
     }
   }
 

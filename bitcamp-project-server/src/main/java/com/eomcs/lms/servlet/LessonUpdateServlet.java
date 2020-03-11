@@ -28,22 +28,19 @@ public class LessonUpdateServlet implements Servlet {
     Lesson lesson = new Lesson();
     lesson.setNo(no);
 
-    lesson.setTitle(
-        Prompt.getString(in, out, String.format("강의명(%s)? \n", old.getTitle()), old.getTitle()));
+    lesson.setTitle(Prompt.getString(in, out, String.format("강의명(%s)? \n", old.getTitle())));
 
-    lesson.setDescription(Prompt.getString(in, out, String.format("설명(%s)? ", old.getDescription()),
-        old.getDescription()));
+    lesson
+        .setDescription(Prompt.getString(in, out, String.format("설명(%s)? ", old.getDescription())));
 
-    lesson.setStartDate(Prompt.getDate(in, out, String.format("강의 시작일(%s)? \n", old.getStartDate()),
-        old.getStartDate().toString()));
+    lesson
+        .setStartDate(Prompt.getDate(in, out, String.format("강의 시작일(%s)? \n", old.getStartDate())));
 
-    lesson.setEndDate(Prompt.getDate(in, out, String.format("종료일(%s)?", old.getEndDate()),
-        old.getEndDate().toString()));
+    lesson.setEndDate(Prompt.getDate(in, out, String.format("종료일(%s)?", old.getEndDate())));
 
-    lesson.setTotalHours(Prompt.getInt(in, out,
-        String.format("총 강의시간(%d)? \n", old.getTotalHours()), String.valueOf(old.getTotalHours())));
-    lesson.setDayHours(Prompt.getInt(in, out, String.format("일 강의시간(%d)? \n", old.getDayHours()),
-        String.valueOf(old.getDayHours())));
+    lesson.setTotalHours(
+        Prompt.getInt(in, out, String.format("총 강의시간(%d)? \n", old.getTotalHours())));
+    lesson.setDayHours(Prompt.getInt(in, out, String.format("일 강의시간(%d)? \n", old.getDayHours())));
 
     out.flush();
 

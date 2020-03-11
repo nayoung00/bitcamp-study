@@ -21,14 +21,6 @@ public class PhotoBoard implements Serializable {
         + ", viewCount=" + viewCount + ", lesson=" + lesson + ", files=" + files + "]";
   }
 
-  public Lesson getLesson() {
-    return lesson;
-  }
-
-  public void setLesson(Lesson lesson) {
-    this.lesson = lesson;
-  }
-
   public int getNo() {
     return no;
   }
@@ -59,6 +51,22 @@ public class PhotoBoard implements Serializable {
 
   public void setViewCount(int viewCount) {
     this.viewCount = viewCount;
+  }
+
+  public Lesson getLesson() {
+    return lesson;
+  }
+
+  public void setLesson(Lesson lesson) {
+    this.lesson = lesson;
+  }
+
+  public List<PhotoFile> getFiles() {
+    return files;
+  }
+
+  public void setFiles(List<PhotoFile> files) {
+    this.files = files;
   }
 
   public static long getSerialversionuid() {

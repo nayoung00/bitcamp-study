@@ -17,21 +17,19 @@ import com.eomcs.util.Prompt;
 
 public class PhotoBoardAddServlet implements Servlet {
 
-  PlatformTransactionManager txManager;
   TransactionTemplate transactionTemplate;
   PhotoBoardDao photoBoardDao;
   LessonDao lessonDao;
   PhotoFileDao photoFileDao;
-
 
   public PhotoBoardAddServlet(PlatformTransactionManager txManager, PhotoBoardDao photoBoardDao,
       LessonDao lessonDao, PhotoFileDao photoFileDao) {
 
     // 우리를 대신해서 트랜잭션 관리자를 사용하여
     // 트랜잭션을 처리할 도우미 객체를 준비한다.
-    // 따라서
+    // 따라서 트랜잭션 관리자는 TransactionTemplate이 사용할 것이기 때문에
+    // 생성자에 넘겨준다.
     this.transactionTemplate = new TransactionTemplate(txManager);
-    this.txManager = txManager;
     this.photoBoardDao = photoBoardDao;
     this.lessonDao = lessonDao;
     this.photoFileDao = photoFileDao;
@@ -40,9 +38,10 @@ public class PhotoBoardAddServlet implements Servlet {
 
   @Override
   public void service(Scanner in, PrintStream out) throws Exception {
-    PhotoBoard photoBoard = new PhotoBoard();
 
+    PhotoBoard photoBoard = new PhotoBoard();
     photoBoard.setTitle(Prompt.getString(in, out, "제목? "));
+
     int lessonNo = Prompt.getInt(in, out, "수업 번호? ");
 
     Lesson lesson = lessonDao.findByNo(lessonNo);
@@ -70,11 +69,7 @@ public class PhotoBoardAddServlet implements Servlet {
         if (photoBoardDao.insert(photoBoard) == 0) {
           throw new Exception("사진 게시글 등록에 실패 했습니다.");
         }
-        // ArrayList에 들어 있는 PhotoFile 데이터를 lms_photo_file 테이블에 저장한다.
-        for (PhotoFile photoFile : photoFiles) {
-          photoFile.setBoardNo(photoBoard.getNo());
-          photoFileDao.insert(photoFile);
-        }
+        photoFileDao.insert(photoBoard);
         out.println("새 사진 게시글을 등록 했습니다.");
         return null;
       }
@@ -99,16 +94,6 @@ public class PhotoBoardAddServlet implements Servlet {
           continue;
         }
       }
-      // 1) 기본 생성자를 사용할 때,
-      // PhotoFile photoFile = new PhotoFile();
-      // photoFile.setFilepath(filepath);
-      // photoFile.setBoardNo(photoBoard.getNo());
-      // photoFiles.add(photoFile);
-
-      // 2) 초기 값을 생성하는 생성자를 사용할 때,
-      // photoFiles.add(new PhotoFile(filepath, photoBoard.getNo()));
-
-      // 3) 셋터 메서드를 활용하여 체인 방식으로 인스턴스 필드의 값을 설정.
       photoFiles.add(new PhotoFile().setFilepath(filepath));
     }
     return photoFiles;
