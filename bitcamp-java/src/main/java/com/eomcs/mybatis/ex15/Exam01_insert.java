@@ -1,5 +1,5 @@
 // mybatis + spring IoC - @Transactional 애노테이션으로 트랜잭션 적용
-package com.eomcs.mybatis.ex05;
+package com.eomcs.mybatis.ex15;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

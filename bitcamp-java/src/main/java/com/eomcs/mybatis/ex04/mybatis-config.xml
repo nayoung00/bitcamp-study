@@ -3,10 +3,11 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-  <properties resource="com/eomcs/mybatis/ex02/jdbc.properties"></properties>
+  <properties resource="com/eomcs/mybatis/ex04/jdbc.properties"></properties>
 
   <typeAliases>
-    <typeAlias type="com.eomcs.mybatis.ex02.Board" alias="Board"/>
+    <typeAlias type="com.eomcs.mybatis.ex04.Board" alias="Board"/>
+     <typeAlias type="com.eomcs.mybatis.ex04.AttachFile" alias="AttachFile"/>
   </typeAliases>
 
   <environments default="development">
@@ -22,6 +23,7 @@
   </environments>
   
   <mappers>
-    <mapper resource="com/eomcs/mybatis/ex02/BoardMapper01.xml"/>
+      <mapper resource="com/eomcs/mybatis/ex04/BoardMapper.xml"/>
+      <mapper resource="com/eomcs/mybatis/ex04/BoardMapper2.xml"/>
   </mappers>
 </configuration>

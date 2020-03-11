@@ -1,5 +1,5 @@
 // mybatis + spring IoC - 트랜잭션 적용 후
-package com.eomcs.mybatis.ex04;
+package com.eomcs.mybatis.ex14;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

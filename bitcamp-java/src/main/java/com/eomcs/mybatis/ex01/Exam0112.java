@@ -19,7 +19,6 @@ public class Exam0112 {
 
     sqlSession.close();
   }
-
 }
 
 
