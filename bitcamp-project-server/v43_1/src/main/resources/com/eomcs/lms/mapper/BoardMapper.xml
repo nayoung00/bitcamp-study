@@ -24,15 +24,20 @@
       board_id desc
   </select>
   
-  <insert id="insertBoard" parameterType="Board">
+  
+  <insert id="insertBoard" parameterType="Board" >
     insert into lms_board(conts) 
     values(#{title})
   </insert>
   
+  
   <select id="detailBoard" resultMap="BoardMap" parameterType="int">
-   select board_id, conts, cdt, vw_cnt 
-   from lms_board 
-   where board_id=#{no}
+   select 
+   board_id, conts, cdt, vw_cnt 
+   from 
+   lms_board 
+   where 
+   board_id=#{no}
   </select>
   
   <update id="updateBoard" parameterType="Board">
