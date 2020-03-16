@@ -4,8 +4,10 @@ import java.io.PrintStream;
 import java.util.Scanner;
 import com.eomcs.lms.domain.Board;
 import com.eomcs.lms.service.BoardService;
+import com.eomcs.util.Component;
 import com.eomcs.util.Prompt;
 
+@Component("/board/update")
 public class BoardUpdateServlet implements Servlet {
   BoardService boardService;
 
@@ -19,7 +21,7 @@ public class BoardUpdateServlet implements Servlet {
     int no = Prompt.getInt(in, out, "번호? ");
 
     Board old = boardService.get(no);
-    
+
     if (old == null) {
       out.println("해당 번호의 게시글이 없습니다.");
       return;
