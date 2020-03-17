@@ -60,7 +60,6 @@ public class PhotoBoardUpdateServlet implements Servlet {
 
     List<PhotoFile> photoFiles = inputPhotoFiles(in, out);
 
-
     transactionTemplate.exectue(() -> {
       if (photoBoardDao.update(photoBoard) == 0) {
         throw new Exception("사진 게시글 변경에 실패했습니다.");
