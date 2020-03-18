@@ -7,7 +7,7 @@ public class TransactionTemplate {
     this.txManager = txManager;
   }
 
-  public Object exectue(TransactionCallback action) throws Exception {
+  public Object execute(TransactionCallback action) throws Exception {
     // 이 메서든느 반복적으로 실행하는 코드를 정의한 것이다.
     // 반복 코드 안에서 특별하게 수행할.. .....
     // 파라미터로 받은 객체를 트랜잭션 하에서 실행할 것이다.

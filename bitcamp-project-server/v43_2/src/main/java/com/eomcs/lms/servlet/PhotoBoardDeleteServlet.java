@@ -27,7 +27,7 @@ public class PhotoBoardDeleteServlet implements Servlet {
 
     int no = Prompt.getInt(in, out, "번호? ");
 
-    transactionTemplate.exectue(() -> {
+    transactionTemplate.execute(() -> {
       photoFileDao.deleteAll(no);
 
       if (photoBoardDao.delete(no) == 0) {

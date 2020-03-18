@@ -59,7 +59,7 @@ public class PhotoBoardAddServlet implements Servlet {
     // 도우미 객체를 이용하여 트랜잭션 작업을 처리해보자
     // => 트래잭션으로 묶어서 처리할 작업은 TransactionCallback 규칙에 따라
     // 객체를 만들어 파라미터로 넘겨주면 된다.
-    transactionTemplate.exectue(new TransactionCallback() {
+    transactionTemplate.execute(new TransactionCallback() {
       @Override
       public Object doInTransaction() throws Exception {
         // 이 메서드는 TransactionTemplate의 execute()에서

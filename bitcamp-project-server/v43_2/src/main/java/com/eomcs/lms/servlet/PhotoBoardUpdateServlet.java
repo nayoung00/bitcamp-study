@@ -47,7 +47,7 @@ public class PhotoBoardUpdateServlet implements Servlet {
         String.format("제목(%s)? \n!{}!\n", old.getTitle(), old.getTitle())));
     photoBoard.setNo(no);
 
-    transactionTemplate.exectue(() -> {
+    transactionTemplate.execute(() -> {
       if (photoBoardDao.update(photoBoard) == 0) {
         throw new Exception("사진 게시글 변경에 실패했습니다.");
       }

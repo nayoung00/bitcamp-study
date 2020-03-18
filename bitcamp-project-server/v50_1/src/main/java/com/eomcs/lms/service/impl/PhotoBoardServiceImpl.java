@@ -27,7 +27,7 @@ public class PhotoBoardServiceImpl implements PhotoBoardService {
 
   @Override
   public void add(PhotoBoard photoBoard) throws Exception {
-    transactionTemplate.exectue(new TransactionCallback() {
+    transactionTemplate.execute(new TransactionCallback() {
       @Override
       public Object doInTransaction() throws Exception {
         if (photoBoardDao.insert(photoBoard) == 0) {
@@ -52,7 +52,7 @@ public class PhotoBoardServiceImpl implements PhotoBoardService {
   @Override
   public void update(PhotoBoard photoBoard) throws Exception {
 
-    transactionTemplate.exectue(() -> {
+    transactionTemplate.execute(() -> {
       if (photoBoardDao.update(photoBoard) == 0) {
         throw new Exception("사진 게시글 변경에 실패했습니다.");
       }
@@ -69,7 +69,7 @@ public class PhotoBoardServiceImpl implements PhotoBoardService {
 
   @Override
   public void delete(int no) throws Exception {
-    transactionTemplate.exectue(() -> {
+    transactionTemplate.execute(() -> {
       photoFileDao.deleteAll(no);
 
       if (photoBoardDao.delete(no) == 0) {
