@@ -28,17 +28,22 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11/"/>
+	<classpathentry sourcepath="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/5.2.4.RELEASE/4e4e334d2f7afb9d8d502bb3dbf5a5e506d79111/spring-jdbc-5.2.4.RELEASE-sources.jar" kind="lib" path="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/5.2.4.RELEASE/d67b040b9aa8e917c689c25116f43d973dcceb98/spring-jdbc-5.2.4.RELEASE.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/user/.gradle/caches/modules-2/files-2.1/commons-dbcp/commons-dbcp/1.4/9b076ff231434d5403be6599a1347019b12c0def/commons-dbcp-1.4-sources.jar" kind="lib" path="C:/Users/user/.gradle/caches/modules-2/files-2.1/commons-dbcp/commons-dbcp/1.4/30be73c965cc990b153a100aaaaafcf239f82d39/commons-dbcp-1.4.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry sourcepath="C:/Users/user/.gradle/caches/modules-2/files-2.1/javax.annotation/javax.annotation-api/1.3.2/65dfd2c47380bf72ec62a5b8c4ceb78a4eda1a53/javax.annotation-api-1.3.2-sources.jar" kind="lib" path="C:/Users/user/.gradle/caches/modules-2/files-2.1/javax.annotation/javax.annotation-api/1.3.2/934c04d3cfef185a8008e7bf34331b79730a9d43/javax.annotation-api-1.3.2.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/5.2.4.RELEASE/439776de85c4c0752482e5c5cc98910682f087d7/spring-context-5.2.4.RELEASE-sources.jar" kind="lib" path="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/5.2.4.RELEASE/acb068439d37a42006abad2b63511dd4491d80f5/spring-context-5.2.4.RELEASE.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/5.2.4.RELEASE/4e4e334d2f7afb9d8d502bb3dbf5a5e506d79111/spring-jdbc-5.2.4.RELEASE-sources.jar" kind="lib" path="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/5.2.4.RELEASE/d67b040b9aa8e917c689c25116f43d973dcceb98/spring-jdbc-5.2.4.RELEASE.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
@@ -68,12 +73,12 @@
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/5.2.4.RELEASE/6cfd7dd8e9ca811603ad9dce18562bba557cd24a/spring-aop-5.2.4.RELEASE-sources.jar" kind="lib" path="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/5.2.4.RELEASE/9ed5335191b9bc8422ec44a90e34d00ee6d737be/spring-aop-5.2.4.RELEASE.jar">
+	<classpathentry sourcepath="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/5.2.4.RELEASE/2fe50a3791cec484f49dbdb5a02ea8fe0db3848d/spring-tx-5.2.4.RELEASE-sources.jar" kind="lib" path="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/5.2.4.RELEASE/64442156b13d582c0ca9788753ffcc594b88de0a/spring-tx-5.2.4.RELEASE.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/5.2.4.RELEASE/2fe50a3791cec484f49dbdb5a02ea8fe0db3848d/spring-tx-5.2.4.RELEASE-sources.jar" kind="lib" path="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/5.2.4.RELEASE/64442156b13d582c0ca9788753ffcc594b88de0a/spring-tx-5.2.4.RELEASE.jar">
+	<classpathentry sourcepath="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/5.2.4.RELEASE/6cfd7dd8e9ca811603ad9dce18562bba557cd24a/spring-aop-5.2.4.RELEASE-sources.jar" kind="lib" path="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/5.2.4.RELEASE/9ed5335191b9bc8422ec44a90e34d00ee6d737be/spring-aop-5.2.4.RELEASE.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
@@ -89,6 +94,11 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/5.2.4.RELEASE/6026dc4811c3cb0caed128707329ece586dc237a/spring-core-5.2.4.RELEASE-sources.jar" kind="lib" path="C:/Users/user/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/5.2.4.RELEASE/155344a8b1a5e98c03c0a102b2aa008d2178f7a1/spring-core-5.2.4.RELEASE.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/user/.gradle/caches/modules-2/files-2.1/commons-pool/commons-pool/1.5.4/3e226507788e09f02eef641e868624fb823af6e6/commons-pool-1.5.4-sources.jar" kind="lib" path="C:/Users/user/.gradle/caches/modules-2/files-2.1/commons-pool/commons-pool/1.5.4/75b6e20c596ed2945a259cea26d7fadd298398e6/commons-pool-1.5.4.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
