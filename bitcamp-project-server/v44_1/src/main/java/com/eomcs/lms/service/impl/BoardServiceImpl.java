@@ -1,4 +1,4 @@
-      package com.eomcs.lms.service.impl;
+package com.eomcs.lms.service.impl;
 
 import java.util.List;
 import com.eomcs.lms.dao.BoardDao;

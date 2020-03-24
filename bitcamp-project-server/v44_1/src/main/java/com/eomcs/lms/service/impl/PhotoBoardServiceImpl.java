@@ -61,7 +61,6 @@ public class PhotoBoardServiceImpl implements PhotoBoardService {
       }
       return null;
     });
-
   }
 
 
@@ -76,7 +75,5 @@ public class PhotoBoardServiceImpl implements PhotoBoardService {
 
       return null;
     });
-
   }
-
 }
