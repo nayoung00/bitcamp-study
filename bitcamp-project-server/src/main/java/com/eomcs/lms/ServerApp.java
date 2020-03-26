@@ -203,14 +203,14 @@ public class ServerApp {
     out.println("<!DOCTYPE html>");
     out.println("<html>");
     out.println("<head>");
-    out.println(" <meta charset='UTF-8'>");
-    out.println(" <title>게시글 입력</title>");
-    out.println(" </head>");
-    out.println(" <body>");
+    out.println("<meta charset='UTF-8'>");
+    out.println("<title>게시글 입력</title>");
+    out.println("</head>");
+    out.println("<body>");
     out.println("<h1>실행 오류!</h1>");
     out.println("<p>요청한 명령을 처리할 수 없습니다.</p>");
-    out.println(" </body>");
-    out.println(" </html>");
+    out.println("</body>");
+    out.println("</html>");
   }
 
   private void quit(PrintStream out) throws IOException {
@@ -243,10 +243,16 @@ public class ServerApp {
       for (String entry : entries) {
         logger.debug(String.format("parameter => %s", entry));
         String[] kv = entry.split("=");
-        // 웹브라우저가 URL 인코딩하여 보낸 데이터를
-        // 디코딩하여 String 객체로 만든다.
-        String value = URLDecoder.decode(kv[1], "UTF-8");
-        params.put(kv[0], value);
+
+        if (kv.length > 1) {
+          // 웹브라우저가 URL 인코딩하여 보낸 데이터를
+          // 디코딩하여 String 객체로 만든다.
+          String value = URLDecoder.decode(kv[1], "UTF-8");
+
+          params.put(kv[0], value);
+        } else {
+          params.put(kv[0], "");
+        }
       }
     }
     return params;

@@ -1,11 +1,11 @@
 package com.eomcs.lms.servlet;
 
 import java.io.PrintStream;
-import java.util.Scanner;
+import java.sql.Date;
+import java.util.Map;
 import org.springframework.stereotype.Component;
 import com.eomcs.lms.domain.Lesson;
 import com.eomcs.lms.service.LessonService;
-import com.eomcs.util.Prompt;
 import com.eomcs.util.RequestMapping;
 
 @Component
@@ -18,40 +18,26 @@ public class LessonUpdateServlet {
   }
 
   @RequestMapping("/lesson/update")
-  public void service(Scanner in, PrintStream out) throws Exception {
+  public void service(Map<String, String> params, PrintStream out) throws Exception {
 
-    int no = Prompt.getInt(in, out, "번호? ");
-
-    Lesson old = lessonService.findByNo(no);
-
-    if (old == null) {
-      out.println("해당 번호의 수업이 없습니다.");
-      return;
-    }
     Lesson lesson = new Lesson();
-    lesson.setNo(no);
+    lesson.setNo(Integer.parseInt(params.get("no")));
+    lesson.setTitle(params.get("title"));
+    lesson.setDescription(params.get("description"));
+    lesson.setStartDate(Date.valueOf(params.get("startDate")));
 
-    lesson.setTitle(Prompt.getString(in, out, String.format("강의명(%s)? \n", old.getTitle())));
+    lesson.setEndDate(Date.valueOf(params.get("endDate")));
+    lesson.setTotalHours(Integer.parseInt(params.get("totalHours")));
+    lesson.setDayHours(Integer.parseInt(params.get("dayHours")));
 
-    lesson
-        .setDescription(Prompt.getString(in, out, String.format("설명(%s)? ", old.getDescription())));
-
-    lesson
-        .setStartDate(Prompt.getDate(in, out, String.format("강의 시작일(%s)? \n", old.getStartDate())));
-
-    lesson.setEndDate(Prompt.getDate(in, out, String.format("종료일(%s)?", old.getEndDate())));
-
-    lesson.setTotalHours(
-        Prompt.getInt(in, out, String.format("총 강의시간(%d)? \n", old.getTotalHours())));
-    lesson.setDayHours(Prompt.getInt(in, out, String.format("일 강의시간(%d)? \n", old.getDayHours())));
-
-    out.flush();
 
     if (lessonService.update(lesson) > 0) { // 변경했다면,
-      out.println("수업을 변경했습니다.");
+      out.println("<p>수업을 변경했습니다.</p>");
     } else {
-      out.println("수업 변경에 실패했습니다.");
+      out.println("<p>수업 변경에 실패했습니다.</p>");
     }
+    out.println("</body>");
+    out.println("</html>");
   }
 }
 

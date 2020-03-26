@@ -32,10 +32,10 @@ public class BoardListServlet {
     out.println(" <table border='14'>");
     out.println(" <tr>");
     out.println(" <th>번호</th>");
-    out.println("  <th>제목</th>");
-    out.println("  <th>등록일</th>");
+    out.println(" <th>제목</th>");
+    out.println(" <th>등록일</th>");
     out.println(" <th>조회수</th>");
-    out.println("  </tr>");
+    out.println(" </tr>");
 
     List<Board> boards = boardService.list();
     for (Board board : boards) {
