@@ -12,10 +12,14 @@
     - 간단한 데이터베이스를 이용하여 파일에서 변경되는 부분(patch set)을 관리한다.
     - 예) RCS(Revision Control System)
   - 중앙집중식 버전 관리
-    - 파일의 마지막 스냅샷만 받는다(checkout).
+    - 파일의 마지막 스냅샷을 받는다(checkout).
     - 스냅샷(snapshot)? 특정 시점의 파일 버전을 기록한 것.
+    - 로컬은 한 개의 스냅샷만 유지한다.
     - 만약 서버에 문제가 생기면 모든 변경 내력(history)을 잃는다.
-    - 예) CVS, Subversion, Perforce 등
+    - 로컬에 있는 스냅샷 중에서 최신 버전으로 복구한다.
+    - 예) CVS, Subversion(SVN), Perforce 등
+    - CVS: commit 할 때 파일 전체를 보관한다.
+    - Subversion : commit 할 때 파일에서 변경한 부분만 보관한다.
   - 분산 버전 관리 시스템
     - 저장소 전부를 복제한다.
     - 변경 내력(history)까지 모두 복제한다.
@@ -37,7 +41,7 @@
 Git은 다음 세가지 상태로 파일을 관리한다.
 
 - Committed
-  - 로컬 데이터베이스에 안전하게 저장되었다는 뜻이다.
+  - 로컬 데이터베이스(저장소; Repository )에 안전하게 저장되었다는 뜻이다.
 - Modified
   - 파일이 변경되었지만 아직 로컬 데이터베이스에 저장되지 않았다는 뜻이다.
 - Staged
@@ -173,12 +177,16 @@ src/**/*.class
 
 예7) 확장자가 '.o' 또는 '.a'인 파일 무시하기
 *.[oa]
+- 위의 방식 대신에 아래처럼 낱개를 일일이 지정해도 된다.
+*.o
+*.a
 
 예8) *~
 파일명이 ~로 끝나는 파일
 
-예9) 만약 *.log 파일을 무시한다면, cotext.log 파일은 무시하지 않고 포함하기
-!context.log
+예9) *.log 파일 중에서 cotext.log 파일은 무시하지 않고 포함하기
+- 문법) !(무시하지말아야할파일)
+- 예) !context.log
 ```
 
 ### git clone [url] [폴더]
@@ -219,7 +227,7 @@ $ git add LICENSE
 $ git add .
 ```
 
-### git commit -m '이번 스냅샷을 저장하는 이유'
+### git commit -m "이번 스냅샷을 저장하는 이유"
 
 - Staging Area에 기록된 파일들(스냅샷)을 로컬 저장소에 보관한다.
 - 파일을 새로 추가하거나 변경하였다면 반드시 `git add`를 실행하여 Staging Area에 기록해야 한다.
@@ -357,8 +365,11 @@ index 0000000..3081b8d
 ### git checkout [파일]
 
 - 작업 디렉토리의 파일을 변경한 후 변경 전으로 되돌릴 때 사용한다.
-- Staging Area에 마지막으로 기록된 버전으로 되돌린다.
-- `git add`를 수행한 적이 없다면 Staging Area에는 마지막으로 커밋한 파일을 가리킨다. 따라서 마지막으로 커밋된 파일로 되돌릴 것이다.
+- Staging Area에 등록된 것이 없다면, 최종 커밋한 버전으로 되돌린다.
+- Staging Area에 등록된 것이 있다면, 현재 Staging Area에 기록된 버전으로 되돌린다.
+- `git add`를 수행한 적이 없다면 
+   Staging Area에는 마지막으로 커밋한 파일을 가리킨다. 
+   따라서 마지막으로 커밋된 파일로 되돌릴 것이다.
 
 ```
 예) src/main/webapp/index.html 파일을 편집 전으로 되돌리기
@@ -370,6 +381,7 @@ $ git checkout src/main/webapp/index.html
 - Staging Area의 기록에서 지정된 파일을 뺀다.
 - 작업 디렉토리에 해당 파일이 있다면 그 파일도 자동 삭제된다.
 - 이전 스냅샷에는 해당 파일이 계속 남아 있다.
+- 파일 삭제 + git add = git rm
 
 ```
 예1) 작업 디렉토리에 있는 파일을 삭제한 후 Git에서도 제거하기
@@ -485,6 +497,15 @@ index 0afb588..c0e04ec 100644
 +<p>내용 추가</p>
  </body>
  </html>
+```
+
+예5) 커밋 정보를 한 줄로 출력해서 보기 
+$ git log --oneline
+```
+ffadd5b (HEAD -> master) 18-2
+e35f05b 17
+02ffa78 16
+6fe6f29 Initial commit
 ```
 
 ### git commit --amend
