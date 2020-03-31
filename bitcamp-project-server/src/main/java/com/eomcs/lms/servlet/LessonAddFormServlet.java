@@ -8,8 +8,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet("/member/addForm")
-public class MemberAddFormServlet extends GenericServlet {
+@WebServlet("/lesson/addForm")
+public class LessonAddFormServlet extends GenericServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
@@ -21,16 +21,18 @@ public class MemberAddFormServlet extends GenericServlet {
     out.println("<html>");
     out.println("<head>");
     out.println("<meta charset='UTF-8'>");
-    out.println("<title>회원 입력</title>");
+    out.println("<title>강의 입력</title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<h1>회원 입력</h1>");
+    out.println("<h1>강의 입력</h1>");
     out.println("<form action='add'>");
-    out.println("이름: <input name='name' type='text'><br>");
-    out.println("이메일: <input name='email' type='email'><br>");
-    out.println("암호: <input name='password' type='password'><br>");
-    out.println("사진: <input name='photo' type='text'><br>");
-    out.println("전화: <input name='tel' type='tel'><br>");
+    out.println("강의명: <input name='title' type='text'><br>");
+    out.println("내용:<br>");
+    out.println("<textarea name='description' rows='5' cols='60'></textarea><br>");
+    out.println("강의 시작일: <input name='startDate' type='date'><br>");
+    out.println("강의 종료일: <input name='endDate' type='date'><br>");
+    out.println("총 강의시간: <input name='totalHours' type='number'><br>");
+    out.println("일 강의시간: <input name='dayHours' type='number'><br>");
     out.println("<button>제출</button>");
     out.println("</form>");
     out.println("</body>");
