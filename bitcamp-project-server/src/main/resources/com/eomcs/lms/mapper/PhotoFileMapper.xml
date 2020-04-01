@@ -12,12 +12,12 @@
   </resultMap>
     
   <insert id="insert" parameterType="PhotoBoard">
-   insert into lms_photo_file(photo_id,file_path) 
+    insert into lms_photo_file(photo_id,file_path) 
     values
     <foreach collection="files" item="file" separator=",">
       (#{no}, #{file.filepath})
     </foreach>
-   </insert>
+  </insert>
   
   <select id="findAll" resultMap="PhotoFileMap" parameterType="int">
     select 
@@ -32,8 +32,15 @@
       photo_file_id asc
   </select>
 
-  <delete id="delete" parameterType="int">
+  <delete id="deleteAll" parameterType="int">
     delete from lms_photo_file
     where photo_id=#{boardNo}
   </delete>
 </mapper>
+
+
+
+
+
+
+

@@ -15,14 +15,13 @@
     <result column="cdt" property="registeredDate"/>
   </resultMap>
   
-  
   <sql id="select1">
       member_id, 
       name, 
       email, 
-      tel, 
+      tel,
   </sql>
-    
+  
   <insert id="insert" parameterType="Member">
     insert into lms_member(
       name, 
@@ -41,7 +40,7 @@
   
   <select id="findAll" resultMap="MemberMap">
     select 
-<include refid="select1"/>
+      <include refid="select1"/>
       cdt
     from 
       lms_member
@@ -50,7 +49,7 @@
   
   <select id="findByNo" resultMap="MemberMap" parameterType="int">
     select 
-   <include refid="select1"/>
+      <include refid="select1"/>
       pwd, 
       photo
     from 
@@ -60,13 +59,13 @@
   </select>
   
   <update id="update" parameterType="Member">
-    update lms_member 
+    update lms_member
     <set>
-      <if test="name !=null and name !=''">name=#{name},</if>  
-      <if test="email !=null and email !=''">email=#{email}, </if>
-      <if test="password !=null and password !=''">pwd=password(#{password}), </if>
-      <if test="tel !=null and tel !=''">tel=#{tel}, </if>
-      <if test="photo !=null and photo !=''">photo=#{photo}</if>
+      <if test="name != null and name != ''">name=#{name},</if>
+      <if test="email != null and email != ''">email=#{email},</if> 
+      <if test="password != null and password != ''">pwd=password(#{password}),</if>
+      <if test="tel != null and tel != ''">tel=#{tel},</if>
+      <if test="photo != null and photo != ''">photo=#{photo}</if>
     </set>
     where 
       member_id=#{no}
@@ -82,7 +81,7 @@
     parameterType="string">
     <bind name="keywordPattern" value="'%' + _parameter + '%'"/>
     select 
-    <include refid="select1"/>
+      <include refid="select1"/>
       cdt
     from 
       lms_member
@@ -96,12 +95,19 @@
     resultMap="MemberMap" 
     parameterType="map">
     select 
-     <include refid="select1"/>
+      <include refid="select1"/>
       pwd, 
       photo
-     from lms_member
-     where 
+    from lms_member
+    where 
       email=#{email} 
       and pwd=password(#{password})
   </select>
 </mapper>
+
+
+
+
+
+
+

@@ -13,7 +13,7 @@
   </resultMap>
   
   <sql id="select1">
-     select 
+    select 
       board_id, 
       conts, 
       cdt, 
@@ -23,7 +23,7 @@
   </sql>
   
   <select id="findAll" resultMap="BoardMap">
-  <include refid="select1"/> 
+    <include refid="select1"/>
     order by 
       board_id desc
   </select>
@@ -34,20 +34,26 @@
   </insert>
   
   <select id="findByNo" resultMap="BoardMap" parameterType="int">
-    <include refid="select1"/> 
-   where board_id=#{no}
+    <include refid="select1"/>
+    where 
+      board_id=#{no}
   </select>
   
   <update id="update" parameterType="Board">
-  update lms_board set 
-   conts=#{title}
-   where board_id=#{no}
+    update lms_board set
+      conts=#{title}
+    where board_id=#{no}
   </update>
   
   <delete id="delete" parameterType="int">
-  delete from lms_board 
-  where board_id=#{no}
+    delete from lms_board
+    where board_id=#{no}
   </delete>
-  
 </mapper>
+
+
+
+
+
+
 
