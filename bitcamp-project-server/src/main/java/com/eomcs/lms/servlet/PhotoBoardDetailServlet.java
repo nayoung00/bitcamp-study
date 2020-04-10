@@ -20,11 +20,12 @@ public class PhotoBoardDetailServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
+    int lessonNo = 0;
     try {
       response.setContentType("text/html;charset=UTF-8");
       PrintWriter out = response.getWriter();
 
-      ServletContext servletContext = request.getServletContext();
+      ServletContext servletContext = getServletContext();
       ApplicationContext iocContainer =
           (ApplicationContext) servletContext.getAttribute("iocContainer");
       PhotoBoardService photoBoardService = iocContainer.getBean(PhotoBoardService.class);
@@ -32,17 +33,12 @@ public class PhotoBoardDetailServlet extends HttpServlet {
 
       PhotoBoard photoBoard = photoBoardService.get(no);
 
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("<head>");
-      out.println("<meta charset='UTF-8'>");
-      out.println("<title>사진 상세정보</title>");
-      out.println("</head>");
-      out.println("<body>");
+      request.getRequestDispatcher("/header").include(request, response);
+
       out.println("<h1>사진 상세정보</h1>");
 
       if (photoBoard != null) {
-        out.println("<form action='update'>");
+        out.println("<form action='update' method='post' enctype='multipart/form-data'>");
         out.printf("번호: <input name='no' type='text' readonly value='%d'><br>\n", //
             photoBoard.getNo());
         out.println("내용:<br>");
@@ -53,31 +49,35 @@ public class PhotoBoardDetailServlet extends HttpServlet {
         out.printf("수업: %s<br>\n", photoBoard.getLesson().getTitle());
         out.println("<hr>");
         out.println("사진 파일:<br>");
-        out.println("<ul>\n");
+        out.println("<p>");
         for (PhotoFile photoFile : photoBoard.getFiles()) {
-          out.printf("  <li>%s</li>\n", photoFile.getFilepath());
+          out.printf("<img src='../upload/photoboard/%s' height='80'>\n", //
+              photoFile.getFilepath());
         }
-        out.println("</ul>");
+        out.println("</p>");
+        out.println("사진: <input name='photo' type='file'><br>");
+        out.println("사진: <input name='photo' type='file'><br>");
+        out.println("사진: <input name='photo' type='file'><br>");
+        out.println("사진: <input name='photo' type='file'><br>");
+        out.println("사진: <input name='photo' type='file'><br>");
 
-        out.println("사진: <input name='photo1' type='file'><br>");
-        out.println("사진: <input name='photo2' type='file'><br>");
-        out.println("사진: <input name='photo3' type='file'><br>");
-        out.println("사진: <input name='photo4' type='file'><br>");
-        out.println("사진: <input name='photo5' type='file'><br>");
-
+        lessonNo = photoBoard.getLesson().getNo();
         out.println("<p><button>변경</button>");
         out.printf("<a href='delete?no=%d&lessonNo=%d'>삭제</a></p>\n", //
             photoBoard.getNo(), //
-            photoBoard.getLesson().getNo());
+            lessonNo);
         out.println("</form>");
 
       } else {
         out.println("<p>해당 번호의 사진 게시글이 없습니다.</p>");
       }
-      out.println("</body>");
-      out.println("</html>");
+
+      request.getRequestDispatcher("/footer").include(request, response);
+
     } catch (Exception e) {
-      throw new ServletException(e);
+      request.setAttribute("error", e);
+      request.setAttribute("url", "list?lessonNo=" + lessonNo);
+      request.getRequestDispatcher("/error").forward(request, response);
     }
   }
 }

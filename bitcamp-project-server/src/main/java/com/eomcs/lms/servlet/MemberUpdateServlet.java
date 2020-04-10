@@ -1,27 +1,29 @@
 package com.eomcs.lms.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.UUID;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import org.springframework.context.ApplicationContext;
 import com.eomcs.lms.domain.Member;
 import com.eomcs.lms.service.MemberService;
 
 @WebServlet("/member/update")
+@MultipartConfig(maxFileSize = 5000000)
 public class MemberUpdateServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     try {
-      response.setContentType("text/html;charset=UTF-8");
-      PrintWriter out = response.getWriter();
+      request.setCharacterEncoding("UTF-8");
 
       ServletContext servletContext = request.getServletContext();
       ApplicationContext iocContainer =
@@ -33,30 +35,26 @@ public class MemberUpdateServlet extends HttpServlet {
       member.setName(request.getParameter("name"));
       member.setEmail(request.getParameter("email"));
       member.setPassword(request.getParameter("password"));
-      member.setPhoto(request.getParameter("photo"));
       member.setTel(request.getParameter("tel"));
 
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("<head>");
-      out.println("<meta charset='UTF-8'>");
-      out.println("<meta http-equiv='refresh' content='2;url=list'>");
-      out.println("<title>회원 변경</title>");
-      out.println("</head>");
-      out.println("<body>");
-      out.println("<h1>회원 변경 결과</h1>");
-
-      if (memberService.update(member) > 0) {
-        out.println("<p>회원을 변경했습니다.</p>");
-
-      } else {
-        out.println("<p>변경에 실패했습니다.</p>");
+      Part photoPart = request.getPart("photo");
+      if (photoPart.getSize() > 0) {
+        String dirPath = getServletContext().getRealPath("/upload/member");
+        String filename = UUID.randomUUID().toString();
+        photoPart.write(dirPath + "/" + filename);
+        member.setPhoto(filename);
       }
 
-      out.println("</body>");
-      out.println("</html>");
+      if (memberService.update(member) > 0) {
+        response.sendRedirect("list");
+      } else {
+        throw new Exception("변경할 회원 번호가 유효하지 않습니다.");
+      }
+
     } catch (Exception e) {
-      throw new ServletException(e);
+      request.setAttribute("error", e);
+      request.setAttribute("url", "list");
+      request.getRequestDispatcher("/error").forward(request, response);
     }
   }
 }
