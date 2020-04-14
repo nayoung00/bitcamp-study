@@ -1,5 +1,4 @@
 <%@page import="com.eomcs.lms.domain.Board"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
@@ -7,13 +6,16 @@
 <jsp:include page="/header.jsp"/>
 
 <h1>게시물 변경(JSP)</h1>
+
+<jsp:useBean id="board" 
+    class="com.eomcs.lms.domain.Board" 
+    scope="request"/>
 <%
-Board board = (Board) request.getAttribute("board");
- if (board == null) {
+if (board.getNo() == 0) {
 %>
-<p>해당 번호의 게시글이 없습니다.</p>
-<%
- } else {
+  <p>해당 번호의 게시글이 없습니다.</p>
+<% 
+} else {
 %>
 <form action='update' method='post'>
 번호: <input name='no' readonly type='text' value='<%=board.getNo()%>'><br>
@@ -24,7 +26,7 @@ Board board = (Board) request.getAttribute("board");
 <button>변경</button>
 </form>
 <%
- }
+}
 %>
-
 <jsp:include page="/footer.jsp"/>
+    

@@ -1,40 +1,26 @@
-# 57_1 - JSP를 활용하여 서블릿에서 출력 기능을 분리하기  
+# 57_3 - JSP에 JSTL 적용하기
 
 ## 학습목표
 
-- JSP 구동원리를 이해한다.
-- JSP를 사용하여 출력기능을 구현할 수 있다.
-- 서블릿과 JSP를 연동하여 클라이언트 요청을 처리할 수 있다.
-- MVC 아키텍처를 이해한다.
+- JSTL을 사용법을 안다.
 
 ## 실습 소스 및 결과
 
-- src/main/java/com/eomcs/lms/servlet/MemberAddServlet.java 변경
-- src/main/java/com/eomcs/lms/servlet/MemberDetailServlet.java 변경
-- src/main/java/com/eomcs/lms/servlet/MemberUpdateServlet.java 변경
-- src/main/java/com/eomcs/lms/servlet/PhotoBoardAddServlet.java 변경
-- src/main/java/com/eomcs/lms/servlet/PhotoBoardDetailServlet.java 변경
-- src/main/java/com/eomcs/lms/servlet/PhotoBoardUpdateServlet.java 변경
+- src/main/java/com/eomcs/lms/servlet/XxxDetailServlet.java 변경
+- src/main/webapp/**/*.jsp 변경
 
 ## 실습  
 
-### 훈련1: 게시글 목록 출력에 JSP를 적용한다.
+### 훈련1: 프론트 컨트롤러 역할을 수행할 ㅅ허블릿을 만든다........함ㄴㄷㄹ ㅇㄻ ㅇㄹ ㄴㅇㅇㅇㄹㅇㄹㅇㄴㄴㄴㄴ
 
-- src/main/webapp/board/list.jsp 추가
-  - BoardListServlet의 출력을 이 JSP에 작성한다.
-- com.eomcs.lms.servlet.BoardListServlet 변경
-  - 서비스 객체를 통해 출력할 데이터를 준비한다.
-  - 출력은 JSP에게 위임한다.
-  - 상단 메뉴바와 하단 스크립트 코드 부분을 별도의 JSP로 분리한다.
-- src/main/webapp/header.jsp 추가
-  - 상단 메뉴를 출력한다.
-- src/main/webapp/footer.jsp 추가
-  - 하단 스크립트 태그를 출력한다.
-  
-### 훈련2: 게시글 상세 정보 출력에 JSP를 적용한다.
+- search.maven.org 사이트에서 jstl 라이브러를 검색한다.
+- jstl 라이브러리 정보를 build.gradle 에 추가한다.
+- 'gradle eclipse'를 실행하여 프로젝트에 라이브러리를 적용한다.
+- 이클립스의 프로젝트를 리프래시 한다.
 
-- src/main/webapp/board/detail.jsp 추가
-  - BoardDetailServlet의 출력을 이 JSP에 작성한다.
-- com.eomcs.lms.servlet.BoardDetailServlet 변경
-  - 서비스 객체를 통해 출력할 데이터를 준비한다.
-  - 출력은 JSP에게 위임한다.
+### 훈련2: JSP에 JSTL을 적용한다.
+
+- com.eomcs.lms.servlet.XxxDetailServlet 변경
+  - 상세 조회에서 해당 번호의 데이터가 없더라도 예외를 발생시키지 않는다.
+  - JSP에서 처리한다. 
+- src/main/webapp/**/*.jsp 변경

@@ -34,13 +34,11 @@ public class ContextLoaderListener implements ServletContextListener {
           // Spring IoC 컨테이너의 설정 정보를 담고 있는 클래스 타입을 지정.
           AppConfig.class);
       printBeans(iocContainer);
-      // 준비한 객체를 담을 공용 바구니를 준비한다.
 
       // 준비한 Spring IoC 컨테이너를 ServletContext 보관소에 저장한다.
       // => 이 객체는 웹애플리케이션 설정 정보를 제공한다.
       // => 또한 서블릿들이 공유할 객체를 담는 바구니 역할도 겸한다.
-      // => ServletContext 보관소는
-      // => 모든 "웹 컴포넌트(서블릿, 리스너, 필터, JSP)"들이
+      // => 모든 "웹 컴포넌트(서블릿,리스너,필터,JSP)"들이
       // 공유할 객체를 보관하는 저장소이다.
       ServletContext servletContext = sce.getServletContext();
 
@@ -66,6 +64,7 @@ public class ContextLoaderListener implements ServletContextListener {
           beanName, //
           appCtx.getBean(beanName).getClass().getName()));
     }
+
   }
 
   @Override

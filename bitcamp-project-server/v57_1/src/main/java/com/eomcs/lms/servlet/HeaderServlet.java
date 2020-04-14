@@ -26,20 +26,20 @@ public class HeaderServlet extends HttpServlet {
     out.println("<title>Bitcamp-LMS</title>");
     out.println(
         "<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous'>");
-
     out.println("<style>");
-    out.println(" body{ ");
-    out.println("  background-color: LightPink;");
-    out.println(" }");
+    out.println("body {");
+    out.println("  background-color: LightGray;");
+    out.println("}");
+
     out.println("div.container {");
-    out.println("  background: LemonChiffon;");
-    out.println(" border: 1px solid gray; ");
-    out.println(" width: 600px; ");
-    out.println(" }");
+    out.println("  background: white;");
+    out.println("  border: 1px solid gray;");
+    out.println("  width: 600px;");
+    out.println("}");
     out.println("</style>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<nav class='navbar navbar-expand-lg navbar navbar-dark bg-dark'>");
+    out.println("<nav class='navbar navbar-expand-lg navbar-dark bg-dark'>");
     out.println("<a class='navbar-brand' href='#'>Navbar</a>");
     out.println(
         "<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>");
@@ -60,7 +60,6 @@ public class HeaderServlet extends HttpServlet {
     out.println("      <a class='nav-link' href='../auth/login'>로그인</a>");
     out.println("    </li>");
     out.println("  </ul>");
-
     Member loginUser = (Member) request.getSession().getAttribute("loginUser");
     if (loginUser != null) {
       out.printf("  <span class='navbar-text'>%s</span>\n", //
@@ -69,9 +68,8 @@ public class HeaderServlet extends HttpServlet {
     } else {
       out.println("  <a href='../auth/login' class='btn btn-success btn-sm'>로그인</a>");
     }
-
     out.println("</div>");
     out.println("</nav>");
-    out.println("<div class='container'>"); // 가운데정렬
+    out.println("<div class='container'>");
   }
 }

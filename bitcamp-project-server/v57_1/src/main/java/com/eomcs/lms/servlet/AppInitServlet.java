@@ -12,7 +12,6 @@ import com.eomcs.lms.AppConfig;
 
 @WebServlet(value = "/AppInitServlet", loadOnStartup = 1)
 public class AppInitServlet extends HttpServlet {
-
   private static final long serialVersionUID = 1L;
 
   static Logger logger = LogManager.getLogger(AppInitServlet.class);
@@ -20,22 +19,17 @@ public class AppInitServlet extends HttpServlet {
   @Override
   public void init() throws ServletException {
     try {
-      // Spring IoC 컨테이너 준비
       ApplicationContext iocContainer = new AnnotationConfigApplicationContext(//
           AppConfig.class);
       printBeans(iocContainer);
 
-
       ServletContext servletContext = getServletContext();
-
       servletContext.setAttribute("iocContainer", iocContainer);
-
       logger.debug("----------------------------");
 
     } catch (Exception e) {
       e.printStackTrace();
     }
-
   }
 
   private void printBeans(ApplicationContext appCtx) {
@@ -46,5 +40,6 @@ public class AppInitServlet extends HttpServlet {
           beanName, //
           appCtx.getBean(beanName).getClass().getName()));
     }
+
   }
 }
