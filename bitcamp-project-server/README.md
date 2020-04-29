@@ -1,4 +1,4 @@
-# 58_2 - Page Controller를 POJO로 전환하고 Spring IoC 컨테이너에서 관리하기
+# 58_2 - Page Controller를 POJO로 전환하고 Spring IoC 컨테이너에서 관리하기  
 
 ## 학습목표
 
